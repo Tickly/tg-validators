@@ -1,7 +1,7 @@
 {
   "name": "tag-validators",
   "version": "0.1.1",
-  "description": "A Vue.js project",
+  "description": "表单验证",
   "author": "taoguo <807081817@qq.com>",
   "scripts": {
     "dev": "node build/dev-server.js",
