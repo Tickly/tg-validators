@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "A Vue.js project",
   "author": "taoguo <807081817@qq.com>",
-  "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
