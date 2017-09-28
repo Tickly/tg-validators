@@ -34,7 +34,7 @@
 
 <script>
 // import Validator from './validators/validator'
-import Model from './model'
+import Model from '../dist/app'
 
 
 
