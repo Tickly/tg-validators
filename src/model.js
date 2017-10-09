@@ -6,7 +6,7 @@ export default class Model {
     labels,
     rules
   }) {
-    this._form = form;
+    this.form = form;
     this._labels = labels;
     this._validators = null;
     this.rules = rules;
@@ -22,7 +22,7 @@ export default class Model {
   }
 
   attributes() {
-    return Object.keys(this._form);
+    return Object.keys(this.form);
   }
 
   createValidators() {
