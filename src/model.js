@@ -1,7 +1,11 @@
 import Validator from './validators/validator'
 
 export default class Model {
-  constructor(form, labels, rules) {
+  constructor({
+    form,
+    labels,
+    rules
+  }) {
     this._form = form;
     this._labels = labels;
     this._validators = null;
