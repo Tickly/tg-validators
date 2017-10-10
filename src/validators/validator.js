@@ -13,15 +13,10 @@ class Validator {
 
   }
 
-  validateAttributes(model, attributes = null) {
-    if (attributes == null) {
-      attributes = [];
-    }
-
-    attributes.forEach(attribute => {
+  validateAttributes(model) {
+    this.attributes.forEach(attribute => {
       this.validateAttribute(model, attribute);
     })
-
   }
   validateAttribute(model, attribute) {
     var result = this.validateValue(model[attribute]);
@@ -61,6 +56,7 @@ class Validator {
 }
 
 
+
 Validator.createValidator = function (type, model, attributes, params = {}) {
   var RequiredValidator = require('./required.validator').default;
   params.attributes = attributes;
@@ -71,10 +67,6 @@ Validator.createValidator = function (type, model, attributes, params = {}) {
 
 
 Validator.validate = function (form, rules) {
-
-
-
-
   // Validator.createValidators(model, rules).forEach(validator => {
   //   validator.validateAttributes(model, )
   // })

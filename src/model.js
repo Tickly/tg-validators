@@ -51,16 +51,15 @@ export default class Model {
 
 
   validate(attributeNames = null) {
-
     this.clearErrors();
 
-    if (attributeNames === null) {
-      attributeNames = this.activeAttributes()
-    }
+    // if (attributeNames === null) {
+    //   attributeNames = this.activeAttributes()
+    // }
 
 
     this.getActiveValidators().forEach(validator => {
-      validator.validateAttributes(this, attributeNames);
+      validator.validateAttributes(this);
     });
 
     return this.hasErrors();
