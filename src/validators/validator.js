@@ -7,8 +7,10 @@
 
 
 class Validator {
-  constructor() {
-    this.attributes = [];
+  constructor({
+    attributes = [],
+  }) {
+    this.attributes = attributes;
     this.message = null;
 
   }
@@ -19,7 +21,7 @@ class Validator {
     })
   }
   validateAttribute(model, attribute) {
-    var result = this.validateValue(model[attribute]);
+    var result = this.validateValue(model.form[attribute]);
     if (result) {
       this.addError(model, attribute, result[0], result[1])
     }

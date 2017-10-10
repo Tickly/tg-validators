@@ -14,16 +14,9 @@ export default class Model {
     // this.errors = {};
     this.clearErrors();
 
-    Object.assign(this, form);
+    // Object.assign(this, form);
   }
 
-  activeAttributes() {
-    return this.attributes();
-  }
-
-  attributes() {
-    return Object.keys(this.form);
-  }
 
   createValidators() {
     return this.rules.map(rule => {
@@ -41,9 +34,7 @@ export default class Model {
     return this._validators;
   }
 
-  getActiveValidators(attribute = null) {
-    return this.getValidators();
-  }
+ 
 
   getAttributeLabel(attribute) {
     return this._labels[attribute] || attribute
@@ -53,12 +44,7 @@ export default class Model {
   validate(attributeNames = null) {
     this.clearErrors();
 
-    // if (attributeNames === null) {
-    //   attributeNames = this.activeAttributes()
-    // }
-
-
-    this.getActiveValidators().forEach(validator => {
+    this.getValidators().forEach(validator => {
       validator.validateAttributes(this);
     });
 
