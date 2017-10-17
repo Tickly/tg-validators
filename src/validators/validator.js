@@ -1,15 +1,12 @@
-// import RequiredValidator from './required.validator'
-
-
-// var Validators = {
-//   required: RequiredValidator,
-// }
-
-
 class Validator {
   constructor({
     attributes = [],
   }) {
+
+    if ('string' === typeof attributes) {
+      attributes = attributes.split(',')
+    }
+
     this.attributes = attributes;
     this.message = null;
 
@@ -57,21 +54,23 @@ class Validator {
 
 }
 
-
-
 Validator.createValidator = function (type, model, attributes, params = {}) {
-  var RequiredValidator = require('./required.validator').default;
-  params.attributes = attributes;
-  return new RequiredValidator(params);
-}
+
+  const Validators = {
+    required: require('./required.validator'),
+    number: require('./number.validator'),
+  };
 
 
+  var validate = Validators[type];
+
+  if (validate) {
+    let Validator = validate.default;
+    params.attributes = attributes;
+    return new Validator(params);
+  }
 
 
-Validator.validate = function (form, rules) {
-  // Validator.createValidators(model, rules).forEach(validator => {
-  //   validator.validateAttributes(model, )
-  // })
 }
 
 export default Validator
