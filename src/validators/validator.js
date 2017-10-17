@@ -9,16 +9,12 @@ class Validator {
 
     this.attributes = attributes;
     this.message = null;
-
-
-
   }
 
 
 
   parse(attributes, options) {
     Object.assign(this, attributes);
-
 
     for (var key in options) {
       if (options.hasOwnProperty(key)) {
@@ -27,8 +23,6 @@ class Validator {
         }
       }
     }
-
-
   }
 
 
@@ -58,12 +52,7 @@ class Validator {
   }
 
   formatMessage(message, params) {
-    var regexp = /{(\w+)}/g;
-
-    function replacer(match, p1) {
-      return params[p1];
-    }
-    return message.replace(regexp, replacer);
+    return message.replace(/{(\w+)}/g, (match, p1) => params[p1]);
   }
 
   addError(model, attribute, message, params = {}) {

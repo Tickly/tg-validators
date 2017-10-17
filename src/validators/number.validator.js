@@ -22,21 +22,18 @@ export default class NumberValidator extends Validator {
       if (!value) break;
       // 如果是个数字
       if (!isNaN(value)) {
-        if (this.max !== null) {
-          if (!(this.max > value)) {
-            return [this.tooBig, {
-              max: this.max
-            }]
-          }
+        if (this.max !== null && value > this.max) {
+          return [this.tooBig, {
+            max: this.max
+          }]
         }
-        if (this.min !== null) {
-          if (!(this.min < value)) {
-            return [this.tooSmall, {
-              min: this.min
-            }]
-          }
+        if (this.min !== null && value < this.min) {
+          return [this.tooSmall, {
+            min: this.min
+          }]
         }
-      } else break;
+        break;
+      };
 
       return [this.message]
     } while (false);
