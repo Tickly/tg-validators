@@ -10,7 +10,27 @@ class Validator {
     this.attributes = attributes;
     this.message = null;
 
+
+
   }
+
+
+
+  parse(attributes, options) {
+    Object.assign(this, attributes);
+
+
+    for (var key in options) {
+      if (options.hasOwnProperty(key)) {
+        if (attributes.hasOwnProperty(key)) {
+          this[key] = options[key];
+        }
+      }
+    }
+
+
+  }
+
 
   validateAttributes(model) {
     this.attributes.forEach(attribute => {
@@ -38,7 +58,7 @@ class Validator {
   }
 
   formatMessage(message, params) {
-    var regexp = /{(\w+)}/;
+    var regexp = /{(\w+)}/g;
 
     function replacer(match, p1) {
       return params[p1];

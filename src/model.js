@@ -21,7 +21,7 @@ export default class Model {
   createValidators() {
     return this.rules.map(rule => {
       if (Array.isArray(rule) && rule.length >= 2) {
-        return Validator.createValidator(rule[1], this, rule[0]);
+        return Validator.createValidator(rule[1], this, rule[0], rule[2]);
       }
       throw new Error('不支持的rules')
     })
@@ -34,7 +34,7 @@ export default class Model {
     return this._validators;
   }
 
- 
+
 
   getAttributeLabel(attribute) {
     return this._labels[attribute] || attribute
