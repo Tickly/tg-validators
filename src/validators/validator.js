@@ -59,6 +59,7 @@ Validator.createValidator = function (type, model, attributes, params = {}) {
   const Validators = {
     required: require('./required.validator'),
     number: require('./number.validator'),
+    date: require('./date.validator'),
   };
 
 
