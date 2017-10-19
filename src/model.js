@@ -10,11 +10,7 @@ export default class Model {
     this._labels = labels;
     this._validators = null;
     this.rules = rules;
-
-    // this.errors = {};
-    this.clearErrors();
-
-    // Object.assign(this, form);
+    this.errors = {};
   }
 
 
@@ -34,6 +30,10 @@ export default class Model {
     return this._validators;
   }
 
+  activeAttributes() {
+    return Object.keys(this.form);
+  }
+
 
 
   getAttributeLabel(attribute) {
@@ -41,11 +41,21 @@ export default class Model {
   }
 
 
-  validate(attributeNames = null) {
-    this.clearErrors();
+  /**
+   * 验证
+   * 可以指定验证的字段
+   * @param {Array} attributeNames 要验证的字段
+   * @param {Boolean} clearErrors 是否清空错误信息，当验证指定字段的时候，应该不要清空
+   */
+  validate(attributeNames = null, clearErrors = true) {
+    if (clearErrors) this.clearErrors();
+
+    if (attributeNames === null) {
+      attributeNames = this.activeAttributes();
+    }
 
     this.getValidators().forEach(validator => {
-      validator.validateAttributes(this);
+      validator.validateAttributes(this, attributeNames);
     });
 
     return this.hasErrors();
@@ -55,13 +65,31 @@ export default class Model {
   addError(attribute, error = '') {
     if (this.errors[attribute] == undefined)
       this.errors[attribute] = []
-
     this.errors[attribute].push(error);
   }
-  clearErrors() {
-    this.errors = {};
+
+  clearErrors(attribute = null) {
+    if (attribute === null) {
+      this.errors = {};
+    } else {
+      // 必须通过这种方式合并对象，不然Vue检测不到更新
+      this.errors = Object.assign({}, this.errors, {
+        [attribute]: [],
+      })
+      // this.errors[attribute] = [];
+    }
   }
-  hasErrors() {
-    return this.errors.length > 0
+  hasErrors(attribute = null) {
+    if (attribute === null) {
+      return Object.keys(this.errors).length
+    }
+
+    let errors = this.errors[attribute];
+
+    if (errors == undefined) {
+      return false
+    }
+
+    return errors.length
   }
 }

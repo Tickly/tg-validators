@@ -26,9 +26,30 @@ class Validator {
   }
 
 
-  validateAttributes(model) {
-    this.attributes.forEach(attribute => {
-      this.validateAttribute(model, attribute);
+  /**
+   * 验证字段
+   * 如果不指定 attributes ,则验证该验证器所有的字段，
+   * @param {Model} model 
+   * @param {Array,String} attributes 要验证的字段
+   */
+  validateAttributes(model, attributes = null) {
+    if (attributes == null) {
+      attributes = this.attributes;
+    } else {
+      if ('string' === typeof attributes) {
+        attributes = [attributes]
+      }
+    }
+
+    attributes.forEach(attribute => {
+      do {
+        // 先判断这个字段是否需要该验证器验证
+        if (!this.attributes.some(attr => attr == attribute)) break;
+        // 再判断这个字段是否有错，
+        // if (model.hasErrors(attribute)) break;
+
+        this.validateAttribute(model, attribute);
+      } while (false);
     })
   }
   validateAttribute(model, attribute) {
