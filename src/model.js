@@ -3,8 +3,8 @@ import Validator from './validators/validator'
 export default class Model {
   constructor({
     form,
-    labels,
-    rules
+    labels = [],
+    rules = [],
   }) {
     this.form = form;
     this._labels = labels;
