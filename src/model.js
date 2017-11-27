@@ -1,4 +1,7 @@
 import Validator from './validators/validator'
+import {
+  debug
+} from 'util';
 
 export default class Model {
   constructor({
@@ -17,7 +20,7 @@ export default class Model {
   createValidators() {
     return this.rules.map(rule => {
       if (Array.isArray(rule) && rule.length >= 2) {
-        return Validator.createValidator(rule[1], this, rule[0], rule[2]);
+        return Validator.createValidator(rule[0], this, rule[1], rule[2]);
       }
       throw new Error('不支持的rules')
     })
@@ -58,7 +61,7 @@ export default class Model {
       validator.validateAttributes(this, attributeNames);
     });
 
-    return this.hasErrors();
+    return !this.hasErrors();
   }
 
 

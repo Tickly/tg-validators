@@ -1,79 +1,76 @@
 <template>
-  <div id="app" class="container">
-    <form class="form-horizontal" @submit.prevent="submit">
-      <div class="form-group">
-        <label for="exampleInputEmail1" class="col-sm-2 control-label">Email address</label>
-        <div class="col-sm-10">
-          <input v-model="form.email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-        </div>
-      </div>
-      <div class="form-group has-error">
-        <label for="exampleInputPassword1" class="col-sm-2 control-label">Password</label>
-        <div class="col-sm-10">
-          <input v-model="form.password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          <div class="help-block" v-if="form.errors.password" v-text="form.errors.password[0]"></div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-10 col-sm-offset-2">
-          <div class="checkbox">
-            <label>
-              <input type="checkbox"> Remember me
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-10 col-sm-offset-2">
-          <button type="submit" class="btn btn-default">Sign in</button>
-        </div>
-      </div>
-    </form>
-  </div>
+  <div id="app" class="container"></div>
 </template>
 
 <script>
-// import Validator from './validators/validator'
-import Model from '../dist/app'
-
-
-
-
+import Validator from '@'
 
 
 export default {
   name: 'app',
   data() {
-    var form = {
-      email: '807081817@qq.com',
-      password: null,
-    },
-      labels = {
-        email: '邮箱',
-        password: '密码',
-      },
-      rules = [
-        [['password', 'email'], 'required'],
-
-      ];
-    return {
-      form: new Model(form, labels, rules),
-    }
+    return {}
   },
   mounted() {
-    this.form.password = 1;
+    this.validate_required();
+    this.validate_number();
   },
   methods: {
-    submit() {
-      this.form.validate();
+    validate(form, rules, labels) {
+      Validator.validate(form, rules, labels)
+        .then(this.success)
+        .catch(this.error)
     },
+    success() {
+      console.log('验证通过');
+    },
+    error(err) {
+      console.log(err, JSON.stringify(err));
+    },
+    validate_required() {
+      var form = {
+        username: 'taoguo',
+        password: '',
+      },
+        rules = [
+          [
+            'required',
+            ['username', 'password'],
+          ]
+        ], labels;
+      this.validate(form, rules, labels);
+    },
+    validate_number() {
+      var form = {
+        number: 99,
+        price: 123.5,
+        age: '15',
+      }, rules = [
+        [
+          'number',
+          ['price', 'age'],
+        ],
+        [
+          'number',
+          ['price', 'number'],
+          {
+            min: 100,
+            max: 150,
+          },
+        ],
+      ], labels = {
+        number: '数字',
+        age: '年龄'
+      };
+      this.validate(form, rules, labels);
+    }
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

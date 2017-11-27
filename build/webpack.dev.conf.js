@@ -37,8 +37,8 @@ var webpackConfig = merge(baseWebpackConfig, {
 
 
 // add hot-reload related code to entry chunks
-Object.keys(baseWebpackConfig.entry).forEach(function (name) {
-  baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
+Object.keys(webpackConfig.entry).forEach(function (name) {
+  webpackConfig.entry[name] = ['./build/dev-client'].concat(webpackConfig.entry[name])
 });
 
 module.exports = webpackConfig;

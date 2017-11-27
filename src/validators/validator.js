@@ -1,3 +1,5 @@
+import Model from '../model';
+
 class Validator {
   constructor({
     attributes = [],
@@ -85,13 +87,11 @@ class Validator {
 }
 
 Validator.createValidator = function (type, model, attributes, params = {}) {
-
   const Validators = {
     required: require('./required.validator'),
     number: require('./number.validator'),
     date: require('./date.validator'),
   };
-
 
   var validate = Validators[type];
 
@@ -99,9 +99,30 @@ Validator.createValidator = function (type, model, attributes, params = {}) {
     let Validator = validate.default;
     params.attributes = attributes;
     return new Validator(params);
+  } else {
+    throw new Error('不支持的验证类型')
   }
-
-
 }
+
+
+
+Validator.validate = function (form, rules, labels) {
+  var model = new Model({
+    form,
+    rules,
+    labels
+  });
+
+  return new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      if (model.validate()) {
+        resolve();
+      } else {
+        reject(model.errors);
+      }
+    }, 0);
+  })
+}
+
 
 export default Validator

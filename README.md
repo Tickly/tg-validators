@@ -7,47 +7,70 @@
 
 ## 示例代码可在我的另一个包 tag-ui 的Form组件代码里看到
 
-像下面这样的配置验证规则即可实现表单验证。
 
-```
-const rules = [
-    [['name', 'password', 'number', 'date'], 'required'],
-    ['number', 'number', {
-    max: 100,
-    min: 10,
-    }],
-    ['date', 'date'],
-]
-```
-
-验证的时候，传入表单，以及rules，即可返回验证结果
+## form
+比如我们有下面这样一个表单
 ```
 const form = {
     name:'taoguo',
     password:'',
-    number:9,
-    date:'2017-10-01',
+    age:9,
+    birthday:'2000-10-01',
 };
-
-const labels = {
-    password:'密码',
-}
-
-// 这里的用法还没优化好，目前是这样用。
-// 之所以多个Model是因为要将attribute转为label，比如password显示为密码。
-const model = new Model({form,labels,rules});
-model.validate();
-
-
-// model.error 
-// {
-//     password:'密码 不能为空',
-//     number:'number 必须大于 10'
-// }
-
-
 ```
 
+## rules
+然后再进行规则的配置
+```
+const rules = [
+    ['required', ['name', 'password', 'age', 'date']],
+    // 多个字段也可以用逗号隔开
+    // ['required','name,password,age,date'],
+    ['number', 'age', {
+        max: 100,
+        min: 10,
+    }],
+    ['date', 'birthday'],
+]
+```
+每一条rule的写法如下
+[type,attributes,params]
+
+- type: 验证器类型
+- attributes: 验证的字段
+- params: 验证器的参数
+
+验证的时候，传入表单，以及rules，即可返回验证结果
+```
+Validator
+    .validate(form,rules)
+    .then(()=>{alert('验证通过')})
+    .catch(err=>{console.log(err)})
+// model.error 
+// {
+//     password: ['password不能为空'],
+//     age: ['age必须大于10'],
+// }
+```
+注意，如果有error，每个字段的error都是一个数组，因为可能是多个验证器的验证结果。
+
+## labels
+验证的时候，还可以传入一个labels参数，用来替换error里面字段名的显示
+```
+const labels = {
+    password:'密码',
+    age:'年龄'
+}
+Validator
+    .validate(form,rules,labels)
+    .then(()=>{alert('验证通过')})
+    .catch(err=>{console.log(err)})
+// model.error 
+// {
+//     password: ['密码不能为空'],
+//     age: ['年龄必须大于10'],
+// }
+```
 
 
 

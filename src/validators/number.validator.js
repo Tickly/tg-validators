@@ -19,9 +19,8 @@ export default class NumberValidator extends Validator {
 
   validateValue(value) {
     do {
-      if (!value) break;
       // 如果是个数字
-      if (!isNaN(value)) {
+      if ('number' === typeof value) {
         if (this.max !== null && value > this.max) {
           return [this.tooBig, {
             max: this.max
