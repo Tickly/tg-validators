@@ -91,6 +91,7 @@ Validator.createValidator = function (type, model, attributes, params = {}) {
     required: require('./required.validator'),
     number: require('./number.validator'),
     date: require('./date.validator'),
+    phone: require('./phone.validator'),
   };
 
   var validate = Validators[type];
