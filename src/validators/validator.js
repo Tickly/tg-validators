@@ -120,7 +120,7 @@ Validator.validate = function (form, rules, labels) {
       if (model.validate()) {
         resolve();
       } else {
-        reject([model.getFirstError, model.errors]);
+        reject([model.getFirstError(), model.errors]);
       }
     }, 0);
   })
