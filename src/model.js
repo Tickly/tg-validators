@@ -95,4 +95,13 @@ export default class Model {
 
     return errors.length
   }
+
+
+  getFirstError() {
+    if (this.hasErrors()) {
+      let first = Object.keys(this.errors)[0];
+      return this.errors[first][0]
+    }
+  }
+
 }

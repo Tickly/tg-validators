@@ -108,6 +108,7 @@ Validator.createValidator = function (type, model, attributes, params = {}) {
 
 
 Validator.validate = function (form, rules, labels) {
+
   var model = new Model({
     form,
     rules,
@@ -119,7 +120,7 @@ Validator.validate = function (form, rules, labels) {
       if (model.validate()) {
         resolve();
       } else {
-        reject(model.errors);
+        reject([model.getFirstError, model.errors]);
       }
     }, 0);
   })

@@ -44,14 +44,26 @@ const rules = [
 ```
 Validator
     .validate(form,rules)
-    .then(()=>{alert('验证通过')})
-    .catch(err=>{console.log(err)})
-// model.error 
+    .then(()=>{
+        alert('验证通过')
+    })
+    // 这里通过数组形式返回两个值
+    // 一个是第一个错误 String
+    // 第二个是全部错误 Object
+    .catch(([firstError,errors])=>{
+        console.log(firstError,errors)
+    })
+
+// firstError
+// 'password不能为空'
+
+// errors
 // {
 //     password: ['password不能为空'],
 //     age: ['age必须大于10'],
 // }
 ```
+
 注意，如果有error，每个字段的error都是一个数组，因为可能是多个验证器的验证结果。
 
 ## labels
@@ -63,8 +75,16 @@ const labels = {
 }
 Validator
     .validate(form,rules,labels)
-    .then(()=>{alert('验证通过')})
-    .catch(err=>{console.log(err)})
+    .then(()=>{
+        alert('验证通过')
+    })
+    .catch(([firstError,errors])=>{
+        console.log(firstError,errors)
+    })
+
+// firstError
+// '密码不能为空'
+
 // model.error 
 // {
 //     password: ['密码不能为空'],
