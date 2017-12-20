@@ -1,6 +1,16 @@
-import Validator from './validators/validator'
 import Model from './model'
 
-Validator.Model = Model;
+import Validator from './validator'
+import validators from './validators'
 
-export default Validator
+import BaseValidator from './validators/validator'
+
+validators.forEach(validator => {
+  Validator.addValidator(validator);
+})
+
+export {
+  Model,
+  Validator,
+  BaseValidator,
+}

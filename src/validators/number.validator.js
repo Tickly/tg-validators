@@ -41,3 +41,6 @@ export default class NumberValidator extends Validator {
   }
 
 }
+
+
+NumberValidator.type = 'number';

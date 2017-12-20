@@ -18,3 +18,6 @@ export default class DateValidator extends Validator {
   }
 
 }
+
+
+DateValidator.type = 'date'

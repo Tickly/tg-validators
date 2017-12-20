@@ -1,7 +1,4 @@
-import Validator from './validators/validator'
-import {
-  debug
-} from 'util';
+import Validator from './validator'
 
 export default class Model {
   constructor({

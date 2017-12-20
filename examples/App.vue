@@ -1,19 +1,26 @@
 <template>
-  <div id="app" class="container"></div>
+  <div id="app" class="container">
+    请打开控制台查看结果
+    <required-validator />
+  </div>
 </template>
 
 <script>
+import RequiredValidator from './required.validator'
 import Validator from '@'
 
 
 export default {
   name: 'app',
+  components: {
+    RequiredValidator,
+  },
   data() {
     return {}
   },
   mounted() {
-    this.validate_required();
-    this.validate_number();
+    // this.validate_required();
+    // this.validate_number();
   },
   methods: {
     validate(form, rules, labels) {

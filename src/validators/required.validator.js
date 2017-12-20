@@ -10,6 +10,10 @@ export default class RequiredValidator extends Validator {
 
   validateValue(value) {
     do {
+      if (0 === value) {
+        break;
+      }
+
       // 如果是有元素的数组
       if (Array.isArray(value)) {
         if (value.length > 0) break;
@@ -20,6 +24,9 @@ export default class RequiredValidator extends Validator {
 
       return [this.message, {}]
     } while (false);
+    // 只要break，就验证通过
     return null
   }
 }
+
+RequiredValidator.type = 'required';
