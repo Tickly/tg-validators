@@ -22,7 +22,7 @@ class Validator {
     return new Promise(function (resolve, reject) {
       setTimeout(() => {
         if (model.validate()) {
-          resolve();
+          resolve(form);
         } else {
           reject([model.getFirstError(), model.errors]);
         }
@@ -36,7 +36,7 @@ class Validator {
     if (!Validator) {
       throw new Error('不支持的验证类型')
     }
-    
+
     params.attributes = attributes;
 
     return new Validator(params);
