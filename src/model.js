@@ -1,16 +1,33 @@
 import Validator from './validator'
 
 export default class Model {
-  constructor({
-    form,
-    labels = [],
-    rules = [],
-  }) {
-    this.form = form;
-    this._labels = labels;
+
+  constructor() {
+
+
+    // this.form = form;
     this._validators = null;
-    this.rules = rules;
+    // this.rules = rules;
     this.errors = {};
+  }
+
+  get labels() {
+    return {}
+  }
+
+  get rules() {
+    return []
+  }
+
+  get attributes() {
+    return [];
+  }
+
+  get form() {
+    return this.attributes.reduce((p, c) => {
+      p[c] = this[c];
+      return p;
+    }, {})
   }
 
 
@@ -30,14 +47,11 @@ export default class Model {
     return this._validators;
   }
 
-  activeAttributes() {
-    return Object.keys(this.form);
-  }
 
 
 
   getAttributeLabel(attribute) {
-    return this._labels[attribute] || attribute
+    return this.labels[attribute] || attribute
   }
 
 
@@ -51,7 +65,7 @@ export default class Model {
     if (clearErrors) this.clearErrors();
 
     if (attributeNames === null) {
-      attributeNames = this.activeAttributes();
+      attributeNames = this.attributes;
     }
 
     this.getValidators().forEach(validator => {

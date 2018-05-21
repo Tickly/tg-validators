@@ -55,7 +55,7 @@ class Validator {
     })
   }
   validateAttribute(model, attribute) {
-    var result = this.validateValue(model.form[attribute]);
+    var result = this.validateValue(model[attribute]);
     if (result) {
       this.addError(model, attribute, result[0], result[1])
     }
