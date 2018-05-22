@@ -2,13 +2,23 @@ import Validator from './validator'
 
 export default class Model {
 
-  constructor() {
+  constructor(options) {
 
 
     // this.form = form;
     this._validators = null;
     // this.rules = rules;
     this.errors = {};
+
+
+    if (typeof options === typeof {}) {
+      this.attributes.forEach(key => {
+        if (options.hasOwnProperty(key)) {
+          this[key] = options[key]
+        }
+      })
+    }
+
   }
 
   get labels() {
