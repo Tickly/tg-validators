@@ -118,7 +118,7 @@ export default class Model {
   }
 
 
-  getFirstError() {
+  get firstError() {
     if (this.hasErrors()) {
       let first = Object.keys(this.errors)[0];
       return this.errors[first][0]
