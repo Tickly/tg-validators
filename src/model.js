@@ -2,19 +2,18 @@ import Validator from './validator'
 
 export default class Model {
 
-  constructor(options) {
-
-
-    // this.form = form;
+  constructor(attributes) {
     this._validators = null;
-    // this.rules = rules;
     this.errors = {};
 
-
-    if (typeof options === typeof {}) {
+    if (typeof attributes === typeof {}) {
       this.attributes.forEach(key => {
-        if (options.hasOwnProperty(key)) {
-          this[key] = options[key]
+        if (attributes.hasOwnProperty(key)) {
+          // 如果传了值过来就赋值
+          this[key] = attributes[key]
+        } else {
+          // 没传值就设为null
+          this[key] = null;
         }
       })
     }
