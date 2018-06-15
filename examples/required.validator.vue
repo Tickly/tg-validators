@@ -5,7 +5,21 @@
     </section>
 </template>
 <script>
-import { Validator } from '@'
+import { Validator, Model } from '@'
+
+class Book extends Model {
+    get attributes() {
+        return [
+            'name',
+        ]
+    }
+
+    get rules() {
+        return [
+            ['required', 'name'],
+        ]
+    }
+}
 
 export default {
     data() {
@@ -14,6 +28,12 @@ export default {
         }
     },
     mounted() {
+
+        let book = new Book();
+
+        book.validate().then(console.log).catch(console.log)
+
+
         const form = {
             a: '',
             b: null,
@@ -24,16 +44,17 @@ export default {
             a: 'A',
         }, rules = [
             ['required', 'a,b,c,d,e'],
+            ['number', 'c', { min: 1 }],
+            ['number', 'c', { min: 1 }],
         ];
 
-        Validator
-            .validate(form, rules, labels)
+        Validator.validate(form, rules, labels)
             .then(() => {
-
+                console.log('yes');
             })
-            .catch(([err, errs]) => {
-                this.errs = errs;
-            });
+            .catch((err) => {
+                console.log('catch', err);
+            })
     },
 }
 </script>

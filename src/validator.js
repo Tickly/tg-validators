@@ -13,33 +13,41 @@ class Validator {
   }
 
   validate(form, rules, labels) {
-    const model = new Model({
-      form,
-      rules,
-      labels
-    });
 
-    return new Promise(function (resolve, reject) {
-      setTimeout(() => {
-        if (model.validate()) {
-          resolve(form);
-        } else {
-          reject([model.getFirstError(), model.errors]);
-        }
-      }, 0);
+    let validators = rules.map(rule => {
+      if (Array.isArray(rule) && rule.length >= 2) {
+        return this.createValidator(rule, labels);
+      }
+      throw new Error('不支持的rules')
+    })
+
+    let errors = {};
+
+    let promises = validators.map(validator => {
+      return validator.validateAttributes(form).then(_errors => {
+        _errors.forEach(([attr, err]) => {
+          if (errors[attr] === undefined) errors[attr] = [];
+          errors[attr].push(err);
+        })
+      })
+    })
+
+
+    return Promise.all(promises).then(() => {
+      if (Object.keys(errors).length) return Promise.reject(errors)
     })
   }
 
-  createValidator(type, model, attributes, params = {}) {
+  createValidator([type, attributes, params = {}], labels) {
     const Validator = this.validators[type];
 
-    if (!Validator) {
-      throw new Error('不支持的验证类型')
-    }
+    if (!Validator) throw new Error('不支持的验证类型')
 
-    params.attributes = attributes;
-
-    return new Validator(params);
+    return new Validator({
+      ...params,
+      attributes,
+      labels,
+    });
   }
 }
 

@@ -1,5 +1,10 @@
 import Validator from './validator'
 
+const labels = Symbol('labels');
+const rules = Symbol('rules');
+
+
+
 export default class Model {
 
   constructor(attributes) {
@@ -24,6 +29,7 @@ export default class Model {
     return {}
   }
 
+
   get rules() {
     return []
   }
@@ -43,7 +49,7 @@ export default class Model {
   createValidators() {
     return this.rules.map(rule => {
       if (Array.isArray(rule) && rule.length >= 2) {
-        return Validator.createValidator(rule[0], this, rule[1], rule[2]);
+        return Validator.createValidator(rule, this.labels);
       }
       throw new Error('不支持的rules')
     })
@@ -71,17 +77,19 @@ export default class Model {
    * @param {Boolean} clearErrors 是否清空错误信息，当验证指定字段的时候，应该不要清空
    */
   validate(attributeNames = null, clearErrors = true) {
-    if (clearErrors) this.clearErrors();
+    return Validator.validate(this.form, this.rules, this.labels)
 
-    if (attributeNames === null) {
-      attributeNames = this.attributes;
-    }
+    // if (clearErrors) this.clearErrors();
 
-    this.getValidators().forEach(validator => {
-      validator.validateAttributes(this, attributeNames);
-    });
+    // if (attributeNames === null) {
+    //   attributeNames = this.attributes;
+    // }
 
-    return !this.hasErrors();
+    // this.getValidators().forEach(validator => {
+    //   validator.validateAttributes(this, attributeNames);
+    // });
+
+    // return !this.hasErrors();
   }
 
 
