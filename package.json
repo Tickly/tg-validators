@@ -1,6 +1,6 @@
 {
   "name": "tag-validators",
-  "version": "0.1.25",
+  "version": "0.2.0",
   "description": "表单验证",
   "author": "taoguo <807081817@qq.com>",
   "scripts": {
