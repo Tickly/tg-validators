@@ -9,3 +9,12 @@ null,
 undefined,
 false,
 ```
+
+
+
+
+| Property | Type | Description |
+| - | - | - |
+| message | String | 
+
+

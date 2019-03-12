@@ -8,9 +8,9 @@ export default class NumberValidator extends Validator {
     const attributes = {
       message: '{attribute}必须是数字',
       max: null,
-      tooBig: '{attribute}不能大于{max}',
+      isMax: '{attribute}不能大于{max}',
       min: null,
-      tooSmall: '{attribute}不能小于{min}',
+      isMin: '{attribute}不能小于{min}',
     };
 
     this.parse(attributes, options);
@@ -20,14 +20,14 @@ export default class NumberValidator extends Validator {
   validateValue(value) {
     do {
       // 如果是个数字
-      if ('number' === typeof value) {
+      if (typeof 0 === typeof value) {
         if (this.max !== null && value > this.max) {
-          return [this.tooBig, {
+          return [this.isMax, {
             max: this.max
           }]
         }
         if (this.min !== null && value < this.min) {
-          return [this.tooSmall, {
+          return [this.isMin, {
             min: this.min
           }]
         }

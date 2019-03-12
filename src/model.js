@@ -7,7 +7,7 @@ const rules = Symbol('rules');
 
 export default class Model {
 
-  constructor(attributes) {
+  constructor(attributes = {}) {
     this._validators = null;
     this.errors = {};
 

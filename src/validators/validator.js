@@ -76,6 +76,8 @@ class Validator {
       return errors
     })
   }
+
+
   validateAttribute(model, attribute) {
     return new Promise((resolve, reject) => {
       var result = this.validateValue(model[attribute], resolve);
@@ -91,7 +93,7 @@ class Validator {
           let [msg, params] = result;
           let err_msg = this.formatMessage(msg, {
             attribute: this.labels[attribute] || attribute,
-            ...params,
+            ...this,
           });
           resolve([attribute, err_msg]);
         }
