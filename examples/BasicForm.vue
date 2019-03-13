@@ -21,7 +21,6 @@
 <script>
 import { Validator } from '@'
 
-
 export default {
   data() {
     return {
@@ -42,7 +41,7 @@ export default {
   },
   methods: {
     validate() {
-        
+
       Validator.validate(this.form, this.rules).then(console.log).catch(errs => this.errors = errs);
     }
   },
