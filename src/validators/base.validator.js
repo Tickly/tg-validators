@@ -43,7 +43,7 @@ class Validator {
    * @param {Model} model 
    * @param {Array,String} attributes 要验证的字段
    */
-  validateAttributes(model, attributes = null) {
+  async validateAttributes(model, attributes = null) {
     if (attributes == null) {
       attributes = this.attributes;
     } else {
@@ -54,50 +54,33 @@ class Validator {
 
     let errors = [];
 
-    let promises = attributes.map(attribute => {
-      return this.validateAttribute(model, attribute).then((err) => {
-        if (err) {
-          errors.push(err);
-        }
-      })
-      // .catch((a) => {
-      //   console.log('catch validateAttribute', a)
-      // })
-
-      // do {
-      //   // 先判断这个字段是否需要该验证器验证
-      //   if (!this.attributes.some(attr => attr == attribute)) break;
-      //   // 再判断这个字段是否有错，
-      //   // if (model.hasErrors(attribute)) break;
-      // } while (false);
+    let promises = attributes.map(async attribute => {
+      return this.validateAttribute(model, attribute)
+        // 验证成功，啥都不做，只处理错误情况
+        .catch(err => {
+          let error_msg = this.formatMessage(err, {
+            attribute: this.labels[attribute] || attribute,
+            ...this,
+          })
+          errors.push([attribute, error_msg]);
+        })
     })
 
-    return Promise.all(promises).then(() => {
-      return errors
-    })
+    await Promise.all(promises);
+    return errors;
   }
 
 
   validateAttribute(model, attribute) {
     return new Promise((resolve, reject) => {
-      var result = this.validateValue(model[attribute], resolve);
+      let result = this.validateValue(model[attribute], resolve, reject);
 
-      if (result === undefined) {
-        // 如果undefined则代表异步验证，由子类自己触发callback
-      } else {
-        // 这里都是同步验证
-        if (result === null) {
-          // null表示验证成功
-          resolve();
-        } else {
-          let [msg, params] = result;
-          let err_msg = this.formatMessage(msg, {
-            attribute: this.labels[attribute] || attribute,
-            ...this,
-          });
-          resolve([attribute, err_msg]);
-        }
-      }
+      // 异步验证，如果undefined则代表异步验证，由子类自己触发callback
+      if (result === undefined) return;
+
+      // 同步验证
+      if (result) reject(result);
+      else resolve();
     })
   }
 

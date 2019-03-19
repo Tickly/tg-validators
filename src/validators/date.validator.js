@@ -1,4 +1,4 @@
-import Validator from './validator'
+import Validator from './base.validator'
 
 export default class DateValidator extends Validator {
   constructor(options) {
@@ -9,11 +9,11 @@ export default class DateValidator extends Validator {
 
   validateValue(value) {
     do {
-      if (!value) break;
       if (Date.parse(value)) break;
 
-      return [this.message]
+      return this.message
     } while (false);
+
     return null;
   }
 

@@ -1,4 +1,4 @@
-import Validator from './validator'
+import Validator from './base.validator'
 
 export default class RequiredValidator extends Validator {
 
@@ -22,7 +22,7 @@ export default class RequiredValidator extends Validator {
         if (!!value) break;
       }
 
-      return [this.message, {}]
+      return this.message
     } while (false);
     // 只要break，就验证通过
     return null

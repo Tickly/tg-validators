@@ -1,4 +1,4 @@
-import Validator from './validator'
+import Validator from './base.validator'
 
 export default class PhoneValidator extends Validator {
 
@@ -17,7 +17,7 @@ export default class PhoneValidator extends Validator {
     do {
       if (/^1\d{10}$/.test(value)) break;
 
-      return [this.message]
+      return this.message
     } while (false);
 
     return null;

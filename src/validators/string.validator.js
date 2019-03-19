@@ -1,4 +1,4 @@
-import Validator from './validator'
+import Validator from './base.validator'
 
 export default class StringValidator extends Validator {
   constructor(options) {
@@ -19,19 +19,15 @@ export default class StringValidator extends Validator {
     do {
       if (typeof '' === typeof value) {
         if (this.min && value.length < this.min)
-          return [this.isMin, {
-            min: this.min,
-          }]
+          return this.isMin
 
         if (this.max && value.length > this.max)
-          return [this.isMax, {
-            max: this.max,
-          }]
+          return this.isMax
 
         break;
       }
 
-      return [this.message]
+      return this.message
     } while (false)
     return null;
   }

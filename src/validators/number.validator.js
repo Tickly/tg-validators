@@ -1,4 +1,4 @@
-import Validator from './validator'
+import Validator from './base.validator'
 
 export default class NumberValidator extends Validator {
 
@@ -22,19 +22,15 @@ export default class NumberValidator extends Validator {
       // 如果是个数字
       if (typeof 0 === typeof value) {
         if (this.max !== null && value > this.max) {
-          return [this.isMax, {
-            max: this.max
-          }]
+          return this.isMax
         }
         if (this.min !== null && value < this.min) {
-          return [this.isMin, {
-            min: this.min
-          }]
+          return this.isMin
         }
         break;
       };
 
-      return [this.message]
+      return this.message
     } while (false);
 
     return null;
