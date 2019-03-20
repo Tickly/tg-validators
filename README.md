@@ -63,7 +63,7 @@ const rules = [
 |-|-|-|-|
 |type|验证器类型|String
 |attributes|验证的字段| [String,Array] | 由逗号隔开的字符串或单个字段名，或者字段名组成的数组
-|params|验证器的参数|Object| 例如是Number验证的时候，可以传 { min : 0, max : 100}
+|params|验证器的参数|Object| 例如是Number验证的时候，可以传 { min : 0, max : 100, message:'自定义错误消息，支持模板替换'}
 
 
 ---

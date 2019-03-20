@@ -5,13 +5,21 @@ import phone from './phone.validator'
 import string from './string.validator'
 import regexp from './regexp.validator'
 import async from './async.validator'
+import boolean from './boolean.validator'
+import array from './array.validator'
 
 export default [
   required,
-  number,
-  date,
-  phone,
+
   string,
+  number,
+  boolean,
+  date,
+  array,
+
+
+  phone,
   regexp,
+
   async,
 ]

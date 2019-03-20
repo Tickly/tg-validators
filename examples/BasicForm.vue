@@ -36,6 +36,40 @@
       </div>
     </div>
 
+    <div class="form-group row">
+      <div class="col-sm-2">爱好</div>
+      <div class="col-sm-10">
+        <div class="form-control" :class="{'is-invalid':errors.hobby}">
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input type="checkbox" value="eat" class="form-check-input" v-model="form.hobby">
+              吃
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input type="checkbox" value="drink" class="form-check-input" v-model="form.hobby">
+              喝
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input type="checkbox" value="play" class="form-check-input" v-model="form.hobby">
+              玩
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <label class="form-check-label">
+              <input type="checkbox" value="funny" class="form-check-input" v-model="form.hobby">
+              乐
+            </label>
+          </div>
+        </div>
+
+        <div class="invalid-feedback" v-if="errors.hobby" v-text="errors.hobby[0]"></div>
+      </div>
+    </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
     <button class="btn btn-info" @click.prevent="handleReset">Reset</button>
   </form>
@@ -50,6 +84,7 @@ let form = {
   phone: null,
   password: null,
   password_confirm: null,
+  hobby: [],
 }
 
 export default {
@@ -61,7 +96,7 @@ export default {
       },
       // 验证规则
       rules: [
-        ['required', 'name'],
+        ['required', ['name', 'hobby']],
         ['string', 'name', { min: 4 }],
         ['number', 'age', { min: 20, max: 30 }],
         ['date', 'birthday'],
@@ -77,10 +112,15 @@ export default {
             }, 1000);
           },
           message: '{attribute}已被占用',
-        }]
+        }],
+        ['array', 'hobby', {
+          min: 1,
+          max: 2,
+        }],
       ],
       labels: {
         name: '姓名',
+        hobby: '爱好',
       },
       // 错误提示
       errors: {},
@@ -100,6 +140,9 @@ export default {
         ...form,
       }
       this.errors = {};
+
+
+
     }
   },
   watch: {
@@ -113,3 +156,4 @@ export default {
   }
 }
 </script>
+
