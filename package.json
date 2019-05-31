@@ -2,12 +2,17 @@
   "name": "tag-validators",
   "version": "0.2.0",
   "description": "表单验证",
+  "license": "MIT",
   "author": "taoguo <807081817@qq.com>",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
     "build": "node build/build.js",
     "test": "./node_modules/karma/bin/karma start test/karma.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tickly/tag-validators.git"
   },
   "main": "dist/app.js",
   "dependencies": {},
@@ -36,7 +41,7 @@
     "http-proxy-middleware": "^0.17.3",
     "jasmine-core": "^2.8.0",
     "jquery": "^3.3.1",
-    "karma": "^1.7.1",
+    "karma": "^4.1.0",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-jasmine": "^1.1.0",
