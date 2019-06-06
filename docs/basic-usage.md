@@ -1,4 +1,9 @@
-let Validator = require('../dist/app').Validator
+# 基本用法
+
+
+```js
+// 引入验证器
+import { Validator } from 'tag-validators'
 
 // 假如有这样一个表单
 let form = {
@@ -27,24 +32,19 @@ Validator.validate(form, rules)
     console.log(error)
   })
 
-// 执行如上代码之后，会输出一个error对象，格式如下
-// {
-//   name: ['name不能为空'],
-//   age: ['age不能小于18']
-// }
-// error 的 key表示验证不通过的字段名
-// value 是一个Array，返回该字段所有不通过的条件
 
 
 
+```
 
+执行如上代码之后，会输出一个error对象，格式如下
+```js
+{
+  name: ['name不能为空'],
+  age: ['age不能小于18']
+}
+```
 
-// describe('HelloWorld.vue', () => {
-//   const expect = chai.expect;
+error 的 key表示验证不通过的字段名
 
-//   it('should render correct contents', () => {
-//     expect(1).to.equal(1);
-//   });
-
-
-// });
+value 是一个Array，返回该字段所有不通过的条件

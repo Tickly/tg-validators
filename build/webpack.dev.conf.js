@@ -1,4 +1,3 @@
-var utils = require('./utils')
 var webpack = require('webpack')
 var config = require('../config')
 var merge = require('webpack-merge')
@@ -8,13 +7,12 @@ var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
 
 var webpackConfig = merge(baseWebpackConfig, {
+  mode: 'development',
   entry: {
     app: './examples/entry'
   },
   module: {
-    rules: utils.styleLoaders({
-      sourceMap: config.dev.cssSourceMap
-    })
+    
   },
   // cheap-module-eval-source-map is faster for development
   devtool: '#cheap-module-eval-source-map',

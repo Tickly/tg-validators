@@ -1,5 +1,3 @@
-import Model from './model'
-
 class Validator {
   constructor() {
     this.validators = {};

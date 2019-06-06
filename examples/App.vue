@@ -75,6 +75,15 @@
 
         <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
           <router-view />
+
+          <pre>
+        <code class="js">
+labels = {
+  number: '数字',
+  age: '年龄'
+}
+        </code>
+      </pre>
         </main>
       </div>
 
@@ -84,9 +93,11 @@
 </template>
 
 <script>
+import 'highlight.js/styles/default.css'
 import RequiredValidator from './required.validator'
 // import BasicForm from './BasicForm.vue'
-import Validator from '@'
+import { Validator } from '@'
+import hljs from 'highlight.js'
 
 
 export default {
@@ -95,26 +106,28 @@ export default {
     // BasicForm,
     // RequiredValidator,
   },
-  data() {
+  data () {
     return {}
   },
-  mounted() {
+  mounted () {
     // this.validate_required();
     // this.validate_number();
+
+    hljs.initHighlightingOnLoad()
   },
   methods: {
-    validate(form, rules, labels) {
+    validate (form, rules, labels) {
       Validator.validate(form, rules, labels)
         .then(this.success)
         .catch(this.error)
     },
-    success() {
+    success () {
       console.log('验证通过');
     },
-    error(err) {
+    error (err) {
       console.log(err, JSON.stringify(err));
     },
-    validate_required() {
+    validate_required () {
       var form = {
         username: 'taoguo',
         password: '',
@@ -127,7 +140,7 @@ export default {
         ], labels;
       this.validate(form, rules, labels);
     },
-    validate_number() {
+    validate_number () {
       var form = {
         number: 99,
         price: 123.5,
