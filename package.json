@@ -10,6 +10,7 @@
     "build": "node build/build.js",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
+    "depoly": "bash deploy.sh",
     "test": "./node_modules/karma/bin/karma start test/karma.conf.js"
   },
   "repository": {
