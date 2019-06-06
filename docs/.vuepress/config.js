@@ -1,4 +1,5 @@
 module.exports = {
+  base: '/tag-validators/',
   title: 'tag-validators',
   description: 'nb',
   // base: '',
