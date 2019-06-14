@@ -6,10 +6,10 @@ export default class StringValidator extends Validator {
 
     const attributes = {
       message: '{attribute}必须是字符串',
-      min: null,
-      isMin: '{attribute}长度至少为{min}',
-      max: null,
-      isMax: '{attribute}长度不能超过{max}',
+      min: 0,
+      message_min: '{attribute}长度至少为{min}',
+      max: Infinity,
+      message_max: '{attribute}长度不能超过{max}',
     }
 
     this.parse(attributes, options)
@@ -19,10 +19,10 @@ export default class StringValidator extends Validator {
     do {
       if (typeof '' === typeof value) {
         if (this.min && value.length < this.min)
-          return this.isMin
+          return this.message_min
 
         if (this.max && value.length > this.max)
-          return this.isMax
+          return this.message_max
 
         break;
       }

@@ -8,9 +8,9 @@ export default class ArrayValidator extends Validator {
     const attributes = {
       message: '{attribute}必须是数组',
       max: null,
-      isMax: '{attribute}最多{max}个',
+      message_max: '{attribute}最多{max}个',
       min: null,
-      isMin: '{attribute}最少{min}个',
+      message_min: '{attribute}最少{min}个',
     };
 
     this.parse(attributes, options);
@@ -21,10 +21,10 @@ export default class ArrayValidator extends Validator {
     do {
       if (Array.isArray(value)) {
         if (this.max !== null && value.length > this.max) {
-          return this.isMax
+          return this.message_max
         }
         if (this.min !== null && value.length < this.min) {
-          return this.isMin
+          return this.message_min
         }
         break;
       };

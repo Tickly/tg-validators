@@ -13,7 +13,16 @@ module.exports = {
         collapsable: false,
         children: [
           '/validators/required',
-          '/validators/number',
+          
+          '/validators/type',
+          // '/validators/string',
+          // '/validators/array',
+          // '/validators/boolean',
+          // '/validators/date',
+
+          '/validators/regexp',
+
+          '/validators/async',
         ]
       }
     ],
