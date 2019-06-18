@@ -1,6 +1,6 @@
 {
-  "name": "tag-validators",
-  "version": "0.2.0",
+  "name": "tg-validators",
+  "version": "1.0.0",
   "description": "表单验证",
   "license": "MIT",
   "author": "taoguo <807081817@qq.com>",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Tickly/tag-validators.git"
+    "url": "https://github.com/Tickly/tg-validators.git"
   },
   "main": "dist/app.js",
   "dependencies": {},
