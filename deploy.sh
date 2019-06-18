@@ -20,6 +20,6 @@ git commit -m 'deploy'
 git push -f git@github.com:Tickly/Tickly.github.io.git master
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-# git push -f git@github.com:Tickly/tag-validators.git master:gh-pages
+# git push -f git@github.com:Tickly/tg-validators.git master:gh-pages
 
 cd -

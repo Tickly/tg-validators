@@ -1,4 +1,4 @@
-# tag-validators
+# tg-validators
 
 > 借鉴了yii2里面的表单验证 [项目地址](https://github.com/yiisoft/yii2/blob/master/framework/validators/Validator.php)
 
@@ -10,7 +10,7 @@
 
 
 ## Install
-`npm i tag-validators`
+`npm i tg-validators`
 
 
 
@@ -18,7 +18,7 @@
 ```
 // 注意一定要用大括号解析
 // 目前是把Model也提供出来了，后期可能移除吧，到时候就不用加大括号了
-import { Validator, Model } from 'tag-validators'
+import { Validator, Model } from 'tg-validators'
 
 Validator
     // 具体每个参数请往下看
@@ -128,7 +128,7 @@ Validator
 
 创建一个文件 string.validator.js 
 ```
-import { BaseValidator } from 'tag-validators'
+import { BaseValidator } from 'tg-validators'
 
 export default Class MyValidator extends BaseValidator {
     // 构造函数里写好错误消息的模板
@@ -157,7 +157,7 @@ MyValidator.type = 'myValidator';
 
 然后在项目入口文件(entry.js)里把添加进去
 ```
-import { Validator } from 'tag-validators'
+import { Validator } from 'tg-validators'
 import myValidator from './string.validator.js'
 
 

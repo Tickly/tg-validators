@@ -1,6 +1,5 @@
 module.exports = {
-  // base: '/tag-validators/',
-  title: 'tag-validators',
+  title: 'tg-validators',
   description: 'nb',
   // base: '',
   themeConfig: {
@@ -13,7 +12,7 @@ module.exports = {
         collapsable: false,
         children: [
           '/validators/required',
-          
+
           '/validators/type',
           // '/validators/string',
           // '/validators/array',

@@ -3,7 +3,7 @@
 
 ```js
 // 引入验证器
-import { Validator } from 'tag-validators'
+import { Validator } from 'tg-validators'
 
 // 假如有这样一个表单
 let form = {
@@ -25,8 +25,7 @@ let rules = [
 // 为了支持异步验证，所以验证方法写成了Promise形式的
 Validator.validate(form, rules)
   // 验证通过
-  .then(function () {
-  })
+  .then(function () { })
   // 验证不通过会给出哪些字段报哪些错
   .catch(function (error) {
     console.log(error)

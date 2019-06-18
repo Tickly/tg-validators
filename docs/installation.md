@@ -4,5 +4,5 @@
 ### npm
 
 ```bash
-npm install tag-validators --save
+npm install tg-validators --save
 ```
