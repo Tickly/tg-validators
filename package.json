@@ -17,7 +17,7 @@
     "type": "git",
     "url": "https://github.com/Tickly/tg-validators.git"
   },
-  "main": "dist/index.js",
+  "main": "dist/index.common.js",
   "dependencies": {
     "@vue/cli-service": "^4.4.1"
   },
