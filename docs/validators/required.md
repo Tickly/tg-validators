@@ -1,5 +1,8 @@
 # Required
 
+## 示例
+<required-basic />
+
 ## 验证不通过的值
 
 ```js
