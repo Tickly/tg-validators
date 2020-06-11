@@ -1,7 +1,7 @@
 module.exports = {
+  base: '/tg-validators/',
   title: 'tg-validators',
   description: 'nb',
-  // base: '',
   themeConfig: {
     sidebar: [
       '/installation',

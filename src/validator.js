@@ -20,19 +20,21 @@ class Validator {
   }
 
   /**
-   * 验证所有属性
+   * 验证
+   * 返回所有验证不通过的错误信息
+   * 
    * @param {Object} form 
    * @param {Array} rules 
    * @param {Object} labels 
    * @returns {Array} 返回所有验证结果
    */
-  validate (form, rules, labels) {
+  validate (form, rules, labels, attrs) {
     let validators = this.getValidators(rules, labels)
 
     let errors = {};
 
     let promises = validators.map(validator => {
-      return validator.validateAttributes(form).then(_errors => {
+      return validator.validateAttributes(form, attrs).then(_errors => {
         _errors.forEach(([attr, err]) => {
           if (errors[attr] === undefined) errors[attr] = [];
           errors[attr].push(err);
@@ -46,7 +48,9 @@ class Validator {
   }
 
   /**
-   * 验证单个属性，只要有一个属性不满足条件就返回错误信息
+   * 验证单个属性
+   * 只要有一个属性不满足条件就返回错误信息
+   * 
    * @param {*} form 
    * @param {*} rules 
    * @param {*} labels 

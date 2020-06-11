@@ -47,3 +47,9 @@ Validator.validate(form, rules)
 error 的 key表示验证不通过的字段名
 
 value 是一个Array，返回该字段所有不通过的条件
+
+
+## 验证部分属性
+
+<<< @/docs/.vuepress/components/validate-some-attribute.vue
+<validate-some-attribute />

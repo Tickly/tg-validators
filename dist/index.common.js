@@ -231,19 +231,21 @@ class Validator {
   }
 
   /**
-   * 验证所有属性
+   * 验证
+   * 返回所有验证不通过的错误信息
+   * 
    * @param {Object} form 
    * @param {Array} rules 
    * @param {Object} labels 
    * @returns {Array} 返回所有验证结果
    */
-  validate (form, rules, labels) {
+  validate (form, rules, labels, attrs) {
     let validators = this.getValidators(rules, labels)
 
     let errors = {};
 
     let promises = validators.map(validator => {
-      return validator.validateAttributes(form).then(_errors => {
+      return validator.validateAttributes(form, attrs).then(_errors => {
         _errors.forEach(([attr, err]) => {
           if (errors[attr] === undefined) errors[attr] = [];
           errors[attr].push(err);
@@ -257,7 +259,9 @@ class Validator {
   }
 
   /**
-   * 验证单个属性，只要有一个属性不满足条件就返回错误信息
+   * 验证单个属性
+   * 只要有一个属性不满足条件就返回错误信息
+   * 
    * @param {*} form 
    * @param {*} rules 
    * @param {*} labels 
@@ -421,7 +425,7 @@ class model_Model {
 
 
 class base_validator_Validator {
-  constructor({
+  constructor ({
     attributes = [],
     labels = {},
   }) {
@@ -434,7 +438,7 @@ class base_validator_Validator {
     this.message = null;
   }
 
-  parseAttributes(attributes) {
+  parseAttributes (attributes) {
     if ('string' === typeof attributes) {
       attributes = attributes.split(',')
     }
@@ -444,7 +448,7 @@ class base_validator_Validator {
 
 
 
-  parse(attributes, options) {
+  parse (attributes, options) {
     Object.assign(this, attributes);
 
     for (var key in options) {
@@ -463,18 +467,19 @@ class base_validator_Validator {
    * @param {Model} model 
    * @param {Array,String} attributes 要验证的字段
    */
-  async validateAttributes(model, attributes = null) {
-    if (attributes == null) {
+  async validateAttributes (model, attributes = null) {
+    if (attributes === null) {
       attributes = this.attributes;
     } else {
       if ('string' === typeof attributes) {
-        attributes = [attributes]
+        attributes = attributes.split(',')
       }
     }
 
     let errors = [];
 
     let promises = attributes.map(async attribute => {
+
       return this.validateAttribute(model, attribute)
         // 验证成功，啥都不做，只处理错误情况
         .catch(err => {
@@ -482,16 +487,18 @@ class base_validator_Validator {
             attribute: this.labels[attribute] || attribute,
             ...this,
           })
+
           errors.push([attribute, error_msg]);
         })
     })
 
     await Promise.all(promises);
+
     return errors;
   }
 
 
-  validateAttribute(model, attribute) {
+  validateAttribute (model, attribute) {
     return new Promise((resolve, reject) => {
       let result = this.validateValue(model[attribute], resolve, reject);
 
@@ -513,15 +520,15 @@ class base_validator_Validator {
    * 返回 null 则验证通过，否则返回错误信息 Array
    * @param {*} value 要验证的值
    */
-  validateValue(value) {
+  validateValue (value) {
     throw new Error('这个类不支持验证')
   }
 
-  formatMessage(message, params) {
+  formatMessage (message, params) {
     return message.replace(/{(\w+)}/g, (match, p1) => params[p1]);
   }
 
-  addError(model, attribute, message, params = {}) {
+  addError (model, attribute, message, params = {}) {
     params.attribute = model.getAttributeLabel(attribute);
 
     model.addError(attribute, this.formatMessage(message, params));
