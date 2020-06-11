@@ -4,21 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>基本用法 | tg-validators</title>
+    <meta name="generator" content="VuePress 1.5.1">
+    
     <meta name="description" content="nb">
-    
-    
-    <link rel="preload" href="/assets/css/0.styles.34cd8072.css" as="style"><link rel="preload" href="/assets/js/app.1a34bb04.js" as="script"><link rel="preload" href="/assets/js/2.5dced2b5.js" as="script"><link rel="preload" href="/assets/js/5.027e8e6c.js" as="script"><link rel="prefetch" href="/assets/js/10.efa6a334.js"><link rel="prefetch" href="/assets/js/11.02641806.js"><link rel="prefetch" href="/assets/js/12.471f567b.js"><link rel="prefetch" href="/assets/js/13.be970c90.js"><link rel="prefetch" href="/assets/js/3.b1247202.js"><link rel="prefetch" href="/assets/js/4.2a75ef89.js"><link rel="prefetch" href="/assets/js/6.0e9fd642.js"><link rel="prefetch" href="/assets/js/7.9df3e5c6.js"><link rel="prefetch" href="/assets/js/8.99ea9f45.js"><link rel="prefetch" href="/assets/js/9.e0270257.js">
-    <link rel="stylesheet" href="/assets/css/0.styles.34cd8072.css">
+    <link rel="preload" href="/assets/css/0.styles.539aa2e6.css" as="style"><link rel="preload" href="/assets/js/app.737850f1.js" as="script"><link rel="preload" href="/assets/js/2.7fbc67b1.js" as="script"><link rel="preload" href="/assets/js/9.cdac41b7.js" as="script"><link rel="prefetch" href="/assets/js/10.6d4c12d1.js"><link rel="prefetch" href="/assets/js/11.efe3378b.js"><link rel="prefetch" href="/assets/js/12.7b76dd44.js"><link rel="prefetch" href="/assets/js/13.b20dfec7.js"><link rel="prefetch" href="/assets/js/14.2bed0afb.js"><link rel="prefetch" href="/assets/js/15.dca5527e.js"><link rel="prefetch" href="/assets/js/16.14906774.js"><link rel="prefetch" href="/assets/js/3.d36280a9.js"><link rel="prefetch" href="/assets/js/4.a6d57ee6.js"><link rel="prefetch" href="/assets/js/5.b2bd9ffa.js"><link rel="prefetch" href="/assets/js/6.fcfd0fb7.js"><link rel="prefetch" href="/assets/js/7.9ddf8ade.js"><link rel="prefetch" href="/assets/js/8.ac92fdb8.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.539aa2e6.css">
   </head>
   <body>
-    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">tg-validators</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/installation.html" class="sidebar-link">安装</a></li><li><a href="/basic-usage.html" class="active sidebar-link">基本用法</a></li><li><a href="/validators/" class="sidebar-link">编写验证规则</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>全部验证器</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/validators/required.html" class="sidebar-link">Required</a></li><li><a href="/validators/type.html" class="sidebar-link">数据类型验证</a></li><li><a href="/validators/regexp.html" class="sidebar-link">正则</a></li><li><a href="/validators/async.html" class="sidebar-link">异步验证</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="基本用法"><a href="#基本用法" aria-hidden="true" class="header-anchor">#</a> 基本用法</h1> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 引入验证器</span>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">tg-validators</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/installation.html" class="sidebar-link">安装</a></li><li><a href="/basic-usage.html" aria-current="page" class="active sidebar-link">基本用法</a></li><li><a href="/validators/" class="sidebar-link">编写验证规则</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>全部验证器</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/validators/required.html" class="sidebar-link">Required</a></li><li><a href="/validators/type.html" class="sidebar-link">数据类型验证</a></li><li><a href="/validators/regexp.html" class="sidebar-link">正则</a></li><li><a href="/validators/async.html" class="sidebar-link">异步验证</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="基本用法"><a href="#基本用法" class="header-anchor">#</a> 基本用法</h1> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 引入验证器</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Validator <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'tg-validators'</span>
 
 <span class="token comment">// 假如有这样一个表单</span>
 <span class="token keyword">let</span> form <span class="token operator">=</span> <span class="token punctuation">{</span>
-  name<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
-  age<span class="token punctuation">:</span> <span class="token number">15</span><span class="token punctuation">,</span>
-  cash<span class="token punctuation">:</span> <span class="token number">233.4</span>
+  name<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+  age<span class="token operator">:</span> <span class="token number">15</span><span class="token punctuation">,</span>
+  cash<span class="token operator">:</span> <span class="token number">233.4</span>
 <span class="token punctuation">}</span>
 
 <span class="token comment">// 定义验证规则</span>
@@ -26,7 +30,7 @@
   <span class="token comment">// 姓名必填</span>
   <span class="token punctuation">[</span><span class="token string">'required'</span><span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token comment">// 要求年龄至少18，你懂得</span>
-  <span class="token punctuation">[</span><span class="token string">'number'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> min<span class="token punctuation">:</span> <span class="token number">18</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span><span class="token string">'number'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> min<span class="token operator">:</span> <span class="token number">18</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">]</span>
 
 <span class="token comment">// 然后就开始验证吧</span>
@@ -44,18 +48,18 @@ Validator<span class="token punctuation">.</span><span class="token function">va
 
 
 </code></pre></div><p>执行如上代码之后，会输出一个error对象，格式如下</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">{</span>
-  name<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'name不能为空'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  age<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'age不能小于18'</span><span class="token punctuation">]</span>
+  name<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'name不能为空'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  age<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'age不能小于18'</span><span class="token punctuation">]</span>
 <span class="token punctuation">}</span>
 </code></pre></div><p>error 的 key表示验证不通过的字段名</p> <p>value 是一个Array，返回该字段所有不通过的条件</p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
-        ←
-        <a href="/installation.html" class="prev">
-          安装
-        </a></span> <span class="next"><a href="/validators/">
-          编写验证规则
-        </a>
-        →
-      </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.1a34bb04.js" defer></script><script src="/assets/js/2.5dced2b5.js" defer></script><script src="/assets/js/5.027e8e6c.js" defer></script>
+      ←
+      <a href="/installation.html" class="prev">
+        安装
+      </a></span> <span class="next"><a href="/validators/">
+        编写验证规则
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.737850f1.js" defer></script><script src="/assets/js/2.7fbc67b1.js" defer></script><script src="/assets/js/9.cdac41b7.js" defer></script>
   </body>
 </html>

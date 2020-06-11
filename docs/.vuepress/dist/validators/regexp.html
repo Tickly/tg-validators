@@ -4,22 +4,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>正则 | tg-validators</title>
+    <meta name="generator" content="VuePress 1.5.1">
+    
     <meta name="description" content="nb">
-    
-    
-    <link rel="preload" href="/assets/css/0.styles.34cd8072.css" as="style"><link rel="preload" href="/assets/js/app.1a34bb04.js" as="script"><link rel="preload" href="/assets/js/2.5dced2b5.js" as="script"><link rel="preload" href="/assets/js/10.efa6a334.js" as="script"><link rel="prefetch" href="/assets/js/11.02641806.js"><link rel="prefetch" href="/assets/js/12.471f567b.js"><link rel="prefetch" href="/assets/js/13.be970c90.js"><link rel="prefetch" href="/assets/js/3.b1247202.js"><link rel="prefetch" href="/assets/js/4.2a75ef89.js"><link rel="prefetch" href="/assets/js/5.027e8e6c.js"><link rel="prefetch" href="/assets/js/6.0e9fd642.js"><link rel="prefetch" href="/assets/js/7.9df3e5c6.js"><link rel="prefetch" href="/assets/js/8.99ea9f45.js"><link rel="prefetch" href="/assets/js/9.e0270257.js">
-    <link rel="stylesheet" href="/assets/css/0.styles.34cd8072.css">
+    <link rel="preload" href="/assets/css/0.styles.539aa2e6.css" as="style"><link rel="preload" href="/assets/js/app.737850f1.js" as="script"><link rel="preload" href="/assets/js/2.7fbc67b1.js" as="script"><link rel="preload" href="/assets/js/14.2bed0afb.js" as="script"><link rel="prefetch" href="/assets/js/10.6d4c12d1.js"><link rel="prefetch" href="/assets/js/11.efe3378b.js"><link rel="prefetch" href="/assets/js/12.7b76dd44.js"><link rel="prefetch" href="/assets/js/13.b20dfec7.js"><link rel="prefetch" href="/assets/js/15.dca5527e.js"><link rel="prefetch" href="/assets/js/16.14906774.js"><link rel="prefetch" href="/assets/js/3.d36280a9.js"><link rel="prefetch" href="/assets/js/4.a6d57ee6.js"><link rel="prefetch" href="/assets/js/5.b2bd9ffa.js"><link rel="prefetch" href="/assets/js/6.fcfd0fb7.js"><link rel="prefetch" href="/assets/js/7.9ddf8ade.js"><link rel="prefetch" href="/assets/js/8.ac92fdb8.js"><link rel="prefetch" href="/assets/js/9.cdac41b7.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.539aa2e6.css">
   </head>
   <body>
-    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">tg-validators</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/installation.html" class="sidebar-link">安装</a></li><li><a href="/basic-usage.html" class="sidebar-link">基本用法</a></li><li><a href="/validators/" class="sidebar-link">编写验证规则</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>全部验证器</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/validators/required.html" class="sidebar-link">Required</a></li><li><a href="/validators/type.html" class="sidebar-link">数据类型验证</a></li><li><a href="/validators/regexp.html" class="active sidebar-link">正则</a></li><li><a href="/validators/async.html" class="sidebar-link">异步验证</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="正则"><a href="#正则" aria-hidden="true" class="header-anchor">#</a> 正则</h1></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
-        ←
-        <a href="/validators/type.html" class="prev">
-          数据类型验证
-        </a></span> <span class="next"><a href="/validators/async.html">
-          异步验证
-        </a>
-        →
-      </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.1a34bb04.js" defer></script><script src="/assets/js/2.5dced2b5.js" defer></script><script src="/assets/js/10.efa6a334.js" defer></script>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">tg-validators</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/installation.html" class="sidebar-link">安装</a></li><li><a href="/basic-usage.html" class="sidebar-link">基本用法</a></li><li><a href="/validators/" aria-current="page" class="sidebar-link">编写验证规则</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>全部验证器</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/validators/required.html" class="sidebar-link">Required</a></li><li><a href="/validators/type.html" class="sidebar-link">数据类型验证</a></li><li><a href="/validators/regexp.html" aria-current="page" class="active sidebar-link">正则</a></li><li><a href="/validators/async.html" class="sidebar-link">异步验证</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="正则"><a href="#正则" class="header-anchor">#</a> 正则</h1></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/validators/type.html" class="prev">
+        数据类型验证
+      </a></span> <span class="next"><a href="/validators/async.html">
+        异步验证
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.737850f1.js" defer></script><script src="/assets/js/2.7fbc67b1.js" defer></script><script src="/assets/js/14.2bed0afb.js" defer></script>
   </body>
 </html>
