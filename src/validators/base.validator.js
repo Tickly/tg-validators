@@ -1,41 +1,42 @@
-import Model from '../model';
-
 class Validator {
-  constructor ({
-    attributes = [],
-    labels = {},
-  }) {
-    // 字段列表
-    this.parseAttributes(attributes);
-    // 字段的描述名
-    this.labels = labels;
+  constructor (options) {
+    let mergedOptions = {
+      // 这是所有验证器的默认属性
+      ...{
+        labels: {}
+      },
+      ...this.defaultOptions,
+      ...options
+    }
+    // 赋值
+    for (var key in mergedOptions) {
+      if (mergedOptions.hasOwnProperty(key)) {
+        this[key] = mergedOptions[key]
+      }
+    }
 
+    let { attributes } = mergedOptions
 
-    this.message = null;
+    // 处理字段列表，统一转化为数组
+    this.attributes = this.parseAttributes(attributes);
+  }
+
+  get defaultOptions () {
+    return {}
   }
 
   parseAttributes (attributes) {
-    if ('string' === typeof attributes) {
-      attributes = attributes.split(',')
-    }
+    let attrs = []
 
-    this.attributes = attributes;
+    if ('string' === typeof attributes)
+      attrs = attributes.split(',')
+
+    if (Array.isArray(attributes))
+      attrs = attributes
+
+
+    return attrs
   }
-
-
-
-  parse (attributes, options) {
-    Object.assign(this, attributes);
-
-    for (var key in options) {
-      if (options.hasOwnProperty(key)) {
-        if (attributes.hasOwnProperty(key)) {
-          this[key] = options[key];
-        }
-      }
-    }
-  }
-
 
   /**
    * 验证字段
@@ -44,23 +45,21 @@ class Validator {
    * @param {Array,String} attributes 要验证的字段
    */
   async validateAttributes (model, attributes = null) {
-    if (attributes === null) {
-      attributes = this.attributes;
-    } else {
-      if ('string' === typeof attributes) {
-        attributes = attributes.split(',')
-      }
-    }
+    let attrs = this.attributes
+
+    // 如果指定了要验证的属性，就只验证这些属性
+    if (attributes)
+      attrs = this.parseAttributes(attributes)
 
     let errors = [];
 
-    let promises = attributes.map(async attribute => {
+    let promises = attrs.map(async attribute => {
 
       return this.validateAttribute(model, attribute)
         // 验证成功，啥都不做，只处理错误情况
         .catch(err => {
           let error_msg = this.formatMessage(err, {
-            attribute: this.labels[attribute] || attribute,
+            attribute: this.labels ? this.labels[attribute] : attribute,
             ...this,
           })
 

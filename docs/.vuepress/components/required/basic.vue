@@ -13,6 +13,8 @@
 </template>
 <script>
 
+
+
 export default {
   data () {
     return {
@@ -29,7 +31,7 @@ export default {
   },
   methods: {
     handleClick () {
-      this.$Validator.validate(this.form, this.rules).catch(console.log)
+      this.validate(this.form, this.rules)
     }
   }
 }

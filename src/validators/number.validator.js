@@ -2,20 +2,15 @@ import Validator from './base.validator'
 
 export default class NumberValidator extends Validator {
 
-  constructor (options) {
-    super(options);
-
-    const attributes = {
+  get defaultOptions () {
+    return {
       message: '{attribute}必须是数字',
       max: Infinity,
       message_max: '{attribute}不能大于{max}',
       min: -Infinity,
       message_min: '{attribute}不能小于{min}',
-    };
-
-    this.parse(attributes, options);
+    }
   }
-
 
   validateValue (value) {
     do {
@@ -35,8 +30,6 @@ export default class NumberValidator extends Validator {
 
     return null;
   }
-
 }
-
 
 NumberValidator.type = 'number';

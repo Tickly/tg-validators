@@ -4,6 +4,9 @@
 
 
 ## Boolean
+
+<types-boolean />
+
 ### 参数
 | 参数 | 类型 | 描述 | 默认值
 | - | - | - | - |
@@ -11,6 +14,9 @@
 
 
 ## Number
+
+<types-number />
+
 ### 参数
 | 参数 | 类型 | 描述 | 默认值
 | - | - | - | - |
@@ -21,6 +27,7 @@
 | message_max | String | 长度大于 max 时的错误提示 | '{attribute}不能大于{max}'
 
 ## String
+<types-string />
 ### 参数
 | 参数 | 类型 | 描述 | 默认值
 | - | - | - | - |
@@ -31,6 +38,7 @@
 | message_max | String | 长度大于 max 时的错误提示 | '{attribute}长度不能超过{max}'
 
 ## Array
+<types-array />
 ### 参数
 | 参数 | 类型 | 描述 | 默认值
 | - | - | - | - |
@@ -41,24 +49,9 @@
 | message_max | String | 个数大于 max 时的错误提示 | '{attribute}长度不能超过{max}'
 
 ## Date
+<types-date />
 
-
-
-> 验证value是否是Number类型，字符串的数字不通过验证。
-
-
-
-
-
-## 示例
-```js
-let form = {
-    a:'1',
-    b:0,
-    c:'0',
-}
-let rules = [
-    ['number','a,b,c'],
-]
-
-```
+### 参数
+| 参数 | 类型 | 描述 | 默认值
+| - | - | - | - |
+| message | String | 当类型不是 Date 时候的错误提示 | '{attribute} 必须是时间类型'

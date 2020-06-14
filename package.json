@@ -16,7 +16,9 @@
     "url": "https://github.com/Tickly/tg-validators.git"
   },
   "main": "dist/index.common.js",
-  "dependencies": {},
+  "dependencies": {
+    "eslint": "^7.2.0"
+  },
   "devDependencies": {
     "@vue/cli-service": "^4.4.1",
     "vuepress": "^1.5.1"

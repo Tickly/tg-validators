@@ -1,11 +1,13 @@
 import Validator from './base.validator'
 
+
+
 export default class RequiredValidator extends Validator {
 
-  constructor (options) {
-    super(options);
-
-    this.message = '{attribute}不能为空';
+  get defaultOptions () {
+    return {
+      message: '{attribute}不能为空'
+    }
   }
 
   validateValue (value) {

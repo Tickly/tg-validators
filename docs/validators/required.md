@@ -19,5 +19,3 @@ false,
 | 参数 | 类型 | 默认值 |
 | - | - | - |
 | message | String | '{attribute}不能为空'
-
-

@@ -31,6 +31,8 @@ class Validator {
   validate (form, rules, labels, attrs) {
     let validators = this.getValidators(rules, labels)
 
+    let isValidateAll
+
     let errors = {};
 
     let promises = validators.map(validator => {
@@ -68,7 +70,7 @@ class Validator {
       ...params,
       attributes,
       labels,
-    });
+    })
   }
 }
 

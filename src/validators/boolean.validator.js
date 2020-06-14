@@ -1,17 +1,13 @@
 import Validator from './base.validator'
 
 export default class BooleanValidator extends Validator {
-  constructor(options) {
-    super(options);
-
-    const attributes = {
+  get defaultOptions () {
+    return {
       message: '{attribute}必须是布尔型',
     }
-
-    this.parse(attributes, options)
   }
 
-  validateValue(value) {
+  validateValue (value) {
     if (typeof true === typeof value) {
       return null;
     }

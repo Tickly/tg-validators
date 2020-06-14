@@ -2,18 +2,14 @@ import Validator from './base.validator'
 
 export default class PhoneValidator extends Validator {
 
-  constructor(options) {
-    super(options);
-
-    const attributes = {
+  get defaultOptions () {
+    return {
       message: '{attribute}必须是11位数字的号码格式',
-    };
-
-    this.parse(attributes, options);
+    }
   }
 
 
-  validateValue(value) {
+  validateValue (value) {
     do {
       if (/^1\d{10}$/.test(value)) break;
 
@@ -22,8 +18,6 @@ export default class PhoneValidator extends Validator {
 
     return null;
   }
-
 }
-
 
 PhoneValidator.type = 'phone';
