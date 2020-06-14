@@ -6,7 +6,7 @@ import validators from './validators'
 import BaseValidator from './validators/base.validator'
 
 validators.forEach(validator => {
-  Validator.addValidator(validator);
+  Validator.addValidator(validator)
 })
 
 export {

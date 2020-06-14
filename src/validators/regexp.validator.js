@@ -4,13 +4,12 @@ export default class RegExpValidator extends Validator {
   get defaultOptions () {
     return {
       message: '{attribute} 必须是满足正则表达式 {regexp}',
-      regexp: null,
+      regexp: null
     }
   }
 
   validateValue (value) {
-    if (typeof this.regexp === 'string')
-      this.regexp = new RegExp(this.regexp);
+    if (typeof this.regexp === 'string') { this.regexp = new RegExp(this.regexp) }
 
     do {
       if (this.regexp.test(value)) break
@@ -20,7 +19,6 @@ export default class RegExpValidator extends Validator {
 
     return null
   }
-
 }
 
-RegExpValidator.type = 'regexp';
+RegExpValidator.type = 'regexp'

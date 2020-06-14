@@ -17,9 +17,8 @@ export default [
   date,
   array,
 
-
   phone,
   regexp,
 
-  async,
+  async
 ]

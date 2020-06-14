@@ -6,15 +6,15 @@ export default class AsyncValidator extends Base {
       message: '{attribute} 没有通过异步验证',
       handle (resolve, reject) {
         reject(this.message)
-      },
+      }
     }
   }
 
   validateValue (value, resolve, reject) {
     this.handle(resolve, () => {
-      reject(this.message);
-    }, value);
+      reject(this.message)
+    }, value)
   }
 }
 
-AsyncValidator.type = 'async';
+AsyncValidator.type = 'async'

@@ -11,7 +11,6 @@ export default class ArrayValidator extends Validator {
     }
   }
 
-
   validateValue (value) {
     do {
       if (Array.isArray(value)) {
@@ -21,15 +20,14 @@ export default class ArrayValidator extends Validator {
         if (this.min !== null && value.length < this.min) {
           return this.message_min
         }
-        break;
-      };
+        break
+      }
 
       return this.message
-    } while (false);
+    } while (false)
 
-    return null;
+    return null
   }
 }
 
-
-ArrayValidator.type = 'array';
+ArrayValidator.type = 'array'
