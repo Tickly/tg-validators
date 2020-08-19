@@ -1,19 +1,13 @@
 <template>
-  <div>
-    <form>
-      <label>姓名
-        <input v-model="form.name">
-      </label>
-      <button
-        type="button"
-        @click="handleClick"
-      >submit</button>
-    </form>
-  </div>
+  <form @submit.prevent="handleSubmit">
+    <label>
+      姓名
+      <input v-model="form.name" />
+    </label>
+    <button>Submit</button>
+  </form>
 </template>
 <script>
-
-
 
 export default {
   data () {
@@ -23,15 +17,15 @@ export default {
       },
       rules: [
         ['required', 'name']
-      ]
+      ],
+      labels: {
+        name: '姓名'
+      }
     }
   },
-  created () {
-
-  },
   methods: {
-    handleClick () {
-      this.validate(this.form, this.rules)
+    handleSubmit () {
+      this.validate(this.form, this.rules, this.labels)
     }
   }
 }

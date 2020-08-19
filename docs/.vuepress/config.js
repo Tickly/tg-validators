@@ -4,6 +4,7 @@ module.exports = {
   description: 'nb',
   themeConfig: {
     sidebar: [
+      '/',
       '/installation',
       '/basic-usage',
       '/validators/',
@@ -12,6 +13,7 @@ module.exports = {
         collapsable: false,
         children: [
           '/validators/required',
+          '/validators/number',
 
           '/validators/type',
           // '/validators/string',

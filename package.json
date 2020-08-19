@@ -12,20 +12,18 @@
     "test": "./node_modules/karma/bin/karma start test/karma.conf.js"
   },
   "main": "dist/index.common.js",
-  "dependencies": {
-    "eslint": "^7.2.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@vue/cli-plugin-eslint": "~4.4.0",
-    "@vue/cli-service": "^4.4.1",
+    "@vue/cli-plugin-eslint": "^4.4.6",
+    "@vue/cli-service": "^4.4.6",
     "@vue/eslint-config-standard": "^5.1.2",
-    "eslint": "^6.7.2",
+    "eslint": "^7.3.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
-    "vuepress": "^1.5.1"
+    "vuepress": "^1.5.2"
   },
   "browserslist": [
     "> 1%",

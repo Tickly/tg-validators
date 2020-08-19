@@ -54,8 +54,7 @@ class Validator {
         // 验证成功，啥都不做，只处理错误情况
         .catch(err => {
           const ErrorMessage = this.formatMessage(err, {
-            attribute: this.labels ? this.labels[attribute] : attribute,
-            ...this
+            attribute: this.getAttributeLabel(attribute),
           })
 
           errors.push([attribute, ErrorMessage])
@@ -89,13 +88,17 @@ class Validator {
   }
 
   formatMessage (message, params) {
-    return message.replace(/{(\w+)}/g, (match, p1) => params[p1])
+    return message.replace(/{(\w+)}/g, (match, p1) => params[p1] || this[p1])
   }
 
   addError (model, attribute, message, params = {}) {
     params.attribute = model.getAttributeLabel(attribute)
 
     model.addError(attribute, this.formatMessage(message, params))
+  }
+
+  getAttributeLabel (attribute) {
+    return this.labels ? this.labels[attribute] : attribute
   }
 }
 

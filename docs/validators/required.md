@@ -2,6 +2,8 @@
 
 ## 示例
 <required-basic />
+<<< @/docs/.vuepress/components/required/basic.vue
+
 
 ## 验证不通过的值
 

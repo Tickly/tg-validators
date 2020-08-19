@@ -10,10 +10,10 @@ class Validator {
     this.validators[validator.type] = validator
   }
 
-  getValidators (rules, labels) {
+  getValidators (form, rules, labels) {
     return rules.map(rule => {
       if (Array.isArray(rule) && rule.length >= 2) {
-        return this.createValidator(rule, labels)
+        return this.createValidator(form, rule, labels)
       }
       throw new Error('不支持的rules')
     })
@@ -29,17 +29,18 @@ class Validator {
    * @returns {Array} 返回所有验证结果
    */
   validate (form, rules, labels, attrs) {
-    const validators = this.getValidators(rules, labels)
+    const validators = this.getValidators(form, rules, labels)
 
     const errors = {}
 
     const promises = validators.map(validator => {
-      return validator.validateAttributes(form, attrs).then(_errors => {
-        _errors.forEach(([attr, err]) => {
-          if (errors[attr] === undefined) errors[attr] = []
-          errors[attr].push(err)
+      return validator.validateAttributes(form, attrs)
+        .then(_errors => {
+          _errors.forEach(([attr, err]) => {
+            if (errors[attr] === undefined) errors[attr] = []
+            errors[attr].push(err)
+          })
         })
-      })
     })
 
     return Promise.all(promises).then(() => {
@@ -59,7 +60,7 @@ class Validator {
 
   }
 
-  createValidator ([type, attributes, params = {}], labels) {
+  createValidator (form, [type, attributes, params = {}], labels) {
     const Validator = this.validators[type]
 
     if (!Validator) throw new Error('不支持的验证类型')
@@ -67,6 +68,7 @@ class Validator {
     return new Validator({
       ...params,
       attributes,
+      form,
       labels,
     })
   }

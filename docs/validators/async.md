@@ -2,6 +2,9 @@
 
 <async />
 
+## 代码
+<<< @/docs/.vuepress/components/async.vue
+
 ## 参数
 | 参数 | 类型 | 默认值 |
 | - | - | - |

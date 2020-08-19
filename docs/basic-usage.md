@@ -1,6 +1,6 @@
 # 基本用法
 
-
+## 简单的例子
 ```js
 // 引入验证器
 import { Validator } from 'tg-validators'
