@@ -1,17 +1,11 @@
 <template>
-  <form>
+  <form @submit.prevent="handleSubmit">
     <label>
       绑定值：
-      <input
-        type="date"
-        v-model="form.bind"
-      >
+      <input type="date" v-model="form.bind" />
     </label>
 
-    <button
-      type="button"
-      @click="handleClick"
-    >Submit</button>
+    <button>Submit</button>
   </form>
 </template>
 <script>
@@ -33,7 +27,7 @@ export default {
     handleChange (e) {
       this.form.bind = JSON.parse(e.target.value)
     },
-    handleClick () {
+    handleSubmit () {
       this.validate(this.form, this.rules, this.labels)
     }
   }

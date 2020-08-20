@@ -55,9 +55,26 @@ class Validator {
    * @param {*} form
    * @param {*} rules
    * @param {*} labels
+   * @param {*} attrs
    */
-  validateOne (form, rules, labels) {
+  async validateOne (form, rules, labels, attrs = []) {
+    // 拿到所有验证器
+    // todo 后期可以考虑一个一个生成验证器，当一个验证器验证通过再生成下一个验证器
+    const validators = this.getValidators(form, rules, labels)
 
+    // 遍历所有验证器
+    for (const validator of validators) {
+      if (attrs.length === 0) attrs = validator.attributes
+
+      for (const attr of attrs) {
+        try {
+          await validator.validateAttribute(form, attr)
+        } catch (message) {
+          return Promise.reject([attr, message])
+        }
+      }
+    }
+    return Promise.resolve()
   }
 
   createValidator (form, [type, attributes, params = {}], labels) {

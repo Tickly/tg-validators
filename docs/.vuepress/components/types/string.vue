@@ -1,21 +1,12 @@
 <template>
-  <form>
-    <button @click="toggle">Toggle input type</button>
-    <label>绑定值
-      <input
-        v-if="type === 'input'"
-        v-model="form.bind"
-      />
-      <input
-        v-else
-        type="number"
-        v-model.number="form.bind"
-      >
+  <form @submit.prevent="handleSubmit">
+    <button type="button" @click="toggle">Toggle input type</button>
+    <label>
+      绑定值
+      <input v-if="type === 'input'" v-model="form.bind" />
+      <input v-else type="number" v-model.number="form.bind" />
     </label>
-    <button
-      type="button"
-      @click="handleClick"
-    >Submit</button>
+    <button>Submit</button>
   </form>
 </template>
 <script>
@@ -43,7 +34,7 @@ export default {
       // 单纯的切换type还不行，得手动重新赋值一下对应的类型
       this.form.bind = this.type === 'input' ? '' : 0
     },
-    handleClick () {
+    handleSubmit () {
       this.validate(this.form, this.rules, this.labels)
     }
   }

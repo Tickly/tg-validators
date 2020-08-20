@@ -1,11 +1,10 @@
 # 数据类型验证
 
-
-
-
 ## Boolean
 
 <types-boolean />
+<<< @/docs/.vuepress/components/types/boolean.vue
+
 
 ### 参数
 | 参数 | 类型 | 描述 | 默认值
@@ -16,6 +15,8 @@
 ## Number
 
 <types-number />
+<<< @/docs/.vuepress/components/types/number.vue
+
 
 ### 参数
 | 参数 | 类型 | 描述 | 默认值
@@ -28,6 +29,8 @@
 
 ## String
 <types-string />
+<<< @/docs/.vuepress/components/types/string.vue
+
 ### 参数
 | 参数 | 类型 | 描述 | 默认值
 | - | - | - | - |
@@ -39,6 +42,8 @@
 
 ## Array
 <types-array />
+<<< @/docs/.vuepress/components/types/array.vue
+
 ### 参数
 | 参数 | 类型 | 描述 | 默认值
 | - | - | - | - |
@@ -50,6 +55,7 @@
 
 ## Date
 <types-date />
+<<< @/docs/.vuepress/components/types/date.vue
 
 ### 参数
 | 参数 | 类型 | 描述 | 默认值

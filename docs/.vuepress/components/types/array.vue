@@ -1,5 +1,5 @@
 <template>
-  <form>
+  <form @submit.prevent="handleSubmit">
     <label>
       选择要验证的值：
       <select @change="handleChange">
@@ -10,10 +10,7 @@
       </select>
     </label>
 
-    <button
-      type="button"
-      @click="handleClick"
-    >Submit</button>
+    <button>Submit</button>
   </form>
 </template>
 <script>
@@ -38,7 +35,7 @@ export default {
     handleChange (e) {
       this.form.bind = JSON.parse(e.target.value)
     },
-    handleClick () {
+    handleSubmit () {
       this.validate(this.form, this.rules, this.labels)
     }
   }

@@ -25,6 +25,10 @@ class Validator {
     return {}
   }
 
+  /**
+   * 解析属性名为数组
+   * @param {String,Array} attributes 属性名，可以允许多个属性
+   */
   parseAttributes (attributes) {
     let attrs = []
 
@@ -52,12 +56,9 @@ class Validator {
     const promises = attrs.map(async attribute => {
       return this.validateAttribute(model, attribute)
         // 验证成功，啥都不做，只处理错误情况
-        .catch(err => {
-          const ErrorMessage = this.formatMessage(err, {
-            attribute: this.getAttributeLabel(attribute),
-          })
-
-          errors.push([attribute, ErrorMessage])
+        // 验证失败，收集错误消息
+        .catch(message => {
+          errors.push([attribute, message])
         })
     })
 
@@ -66,6 +67,12 @@ class Validator {
     return errors
   }
 
+  /**
+   * 验证属性
+   * @param {*} model 表单对象
+   * @param {*} attribute 属性名称
+   * @returns {Promise} 返回一个Promise对象，如果验证失败，该Promise对象的状态为rejected，并且reject一个错误消息
+   */
   validateAttribute (model, attribute) {
     return new Promise((resolve, reject) => {
       const result = this.validateValue(model[attribute], resolve, reject)
@@ -76,6 +83,11 @@ class Validator {
       // 同步验证
       if (result) reject(result)
       else resolve()
+    }).catch(err => {
+      const message = this.formatMessage(err, {
+        attribute: this.getAttributeLabel(attribute)
+      })
+      return Promise.reject(message)
     })
   }
 
@@ -97,6 +109,10 @@ class Validator {
     model.addError(attribute, this.formatMessage(message, params))
   }
 
+  /**
+   * 获取属性对应的label文字，如果没有提供，则使用属性名
+   * @param {String} attribute 属性
+   */
   getAttributeLabel (attribute) {
     return this.labels ? this.labels[attribute] : attribute
   }
