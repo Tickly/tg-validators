@@ -1,9 +1,12 @@
+/**
+ * 自定义验证
+ */
 import Base from './base.validator'
 
-export default class AsyncValidator extends Base {
+export default class CustomValidator extends Base {
   get defaultOptions () {
     return {
-      message: '{attribute} 没有通过异步验证',
+      message: '{attribute} 没有通过验证',
       handler (value, resolve, reject) {
         reject(this.message)
       }
@@ -11,10 +14,8 @@ export default class AsyncValidator extends Base {
   }
 
   validateValue (value, resolve, reject) {
-    this.handler(value, resolve, () => {
-      reject(this.message)
-    })
+    return this.handler(value, resolve, reject)
   }
 }
 
-AsyncValidator.type = 'async'
+CustomValidator.type = 'custom'

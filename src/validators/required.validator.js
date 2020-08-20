@@ -7,7 +7,7 @@ export default class RequiredValidator extends Validator {
     }
   }
 
-  validateValue (value) {
+  validateValue (value, resolve) {
     do {
       if (value === 0) {
         break
@@ -20,10 +20,10 @@ export default class RequiredValidator extends Validator {
       // 如果有值
       if (value) break
 
-      return this.message
+      throw new Error(this.message)
     } while (false)
     // 只要break，就验证通过
-    return null
+    resolve()
   }
 }
 

@@ -75,14 +75,9 @@ class Validator {
    */
   validateAttribute (model, attribute) {
     return new Promise((resolve, reject) => {
-      const result = this.validateValue(model[attribute], resolve, reject)
-
-      // 异步验证，如果undefined则代表异步验证，由子类自己触发callback
-      if (result === undefined) return
-
-      // 同步验证
-      if (result) reject(result)
-      else resolve()
+      try {
+        this.validateValue(model[attribute], resolve, reject)
+      } catch (err) { reject(err.message) }
     }).catch(err => {
       const message = this.formatMessage(err, {
         attribute: this.getAttributeLabel(attribute)
@@ -92,7 +87,10 @@ class Validator {
   }
 
   /**
-   * 返回 null 则验证通过，否则返回错误信息 Array
+   * 验证
+   * 验证过程的主要逻辑
+   * 同步验证，就通过throw new Error(message)来进行错误收集
+   * 异步验证，通过reject(message)来进行错误收集
    * @param {*} value 要验证的值
    */
   validateValue (value) {

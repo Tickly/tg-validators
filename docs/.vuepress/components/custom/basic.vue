@@ -1,7 +1,8 @@
 <template>
   <form @submit.prevent="handleSubmit">
-    <label>验证值：</label>
-    <input type="text" v-model="form.bind" />
+    <label>
+      <input v-model="form.name" />
+    </label>
     <button>Submit</button>
   </form>
 </template>
@@ -10,19 +11,17 @@ export default {
   data () {
     return {
       form: {
-        bind: ''
+        name: ''
       },
       rules: [
-        ['custom', 'bind', {
+        ['custom', 'name', {
           handler (value, resolve, reject) {
-            if (value === 'a') setTimeout(resolve, 1000)
-            else setTimeout(() => reject('{attribute}必须等于a'), 1000)
+            if (value.indexOf('帅') === -1) {
+              throw new Error('你不够帅')
+            }
           }
         }]
-      ],
-      labels: {
-        bind: '验证值'
-      }
+      ]
     }
   },
   methods: {

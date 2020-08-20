@@ -7,14 +7,12 @@ export default class DateValidator extends Validator {
     }
   }
 
-  validateValue (value) {
-    do {
-      if (Date.parse(value)) break
+  validateValue (value, resolve) {
+    if (!Date.parse(value)) {
+      throw new Error(this.message)
+    }
 
-      return this.message
-    } while (false)
-
-    return null
+    resolve()
   }
 }
 

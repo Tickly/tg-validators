@@ -8,16 +8,16 @@ export default class RegExpValidator extends Validator {
     }
   }
 
-  validateValue (value) {
-    if (typeof this.regexp === 'string') { this.regexp = new RegExp(this.regexp) }
+  validateValue (value, resolve) {
+    if (typeof this.regexp === 'string') {
+      this.regexp = new RegExp(this.regexp)
+    }
 
-    do {
-      if (this.regexp.test(value)) break
+    if (!this.regexp.test(value)) {
+      throw new Error(this.message)
+    }
 
-      return this.message
-    } while (false)
-
-    return null
+    resolve()
   }
 }
 

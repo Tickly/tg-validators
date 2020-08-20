@@ -32,18 +32,14 @@ export default class NumberValidator extends Validator {
   }
 
   validateValue (value, resolve, reject) {
-    try {
-      // 类型验证，必须是数字类型
-      if (typeof value !== typeof 0) throw new Error(this.message)
+    // 类型验证，必须是数字类型
+    if (typeof value !== typeof 0) throw new Error(this.message)
 
-      // 验证最大值与最小值
-      this.validateMax(value)
-      this.validateMin(value)
+    // 验证最大值与最小值
+    this.validateMax(value)
+    this.validateMin(value)
 
-      resolve()
-    } catch (err) {
-      reject(err.message)
-    }
+    resolve()
   }
 
   validateMax (value) {

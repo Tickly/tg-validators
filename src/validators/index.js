@@ -6,6 +6,7 @@ import string from './string.validator'
 import regexp from './regexp.validator'
 import async from './async.validator'
 import boolean from './boolean.validator'
+import custom from './custom.validator'
 import array from './array.validator'
 
 export default [
@@ -20,5 +21,6 @@ export default [
   phone,
   regexp,
 
+  custom,
   async
 ]

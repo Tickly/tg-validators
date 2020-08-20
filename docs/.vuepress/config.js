@@ -23,6 +23,7 @@ module.exports = {
 
           '/validators/regexp',
 
+          '/validators/custom',
           '/validators/async',
         ]
       }

@@ -7,11 +7,11 @@ export default class BooleanValidator extends Validator {
     }
   }
 
-  validateValue (value) {
-    if (typeof true === typeof value) {
-      return null
+  validateValue (value, resolve) {
+    if (typeof true !== typeof value) {
+      throw new Error(this.message)
     }
-    return this.message
+    resolve()
   }
 }
 

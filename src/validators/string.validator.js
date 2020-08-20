@@ -11,20 +11,20 @@ export default class StringValidator extends Validator {
     }
   }
 
-  validateValue (value) {
-    do {
-      if (typeof value === 'string') {
-        if (this.min && value.length < this.min) { return this.message_min }
+  validateValue (value, resolve) {
+    if (typeof value !== typeof '') {
+      throw new Error(this.message)
+    }
 
-        if (this.max && value.length > this.max) { return this.message_max }
+    if (this.min && value.length < this.min) {
+      throw new Error(this.message_min)
+    }
 
-        break
-      }
+    if (this.max && value.length > this.max) {
+      throw new Error(this.message_max)
+    }
 
-      return this.message
-    } while (false)
-
-    return null
+    resolve()
   }
 }
 
