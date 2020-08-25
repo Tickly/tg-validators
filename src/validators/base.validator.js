@@ -74,6 +74,8 @@ class Validator {
    * @returns {Promise} 返回一个Promise对象，如果验证失败，该Promise对象的状态为rejected，并且reject一个错误消息
    */
   validateAttribute (model, attribute) {
+    // 如果验证规则里，该验证器没有指定该属性
+    if (this.attributes.indexOf(attribute) === -1) return Promise.resolve()
     return new Promise((resolve, reject) => {
       try {
         this.validateValue(model[attribute], resolve, reject)
@@ -112,7 +114,7 @@ class Validator {
    * @param {String} attribute 属性
    */
   getAttributeLabel (attribute) {
-    return this.labels ? this.labels[attribute] : attribute
+    return this.labels ? (this.labels[attribute] || attribute) : attribute
   }
 }
 
