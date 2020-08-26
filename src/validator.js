@@ -29,6 +29,7 @@ class Validator {
    * @returns {Array} 返回所有验证结果
    */
   validate (form, rules, labels, attrs) {
+    console.log('validate', form, rules, labels, attrs)
     const validators = this.getValidators(form, rules, labels)
 
     const errors = {}

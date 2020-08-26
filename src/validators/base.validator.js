@@ -30,11 +30,13 @@ class Validator {
    * @param {String,Array} attributes 属性名，可以允许多个属性
    */
   parseAttributes (attributes) {
-    let attrs = []
+    let attrs = this.attributes
 
     if (typeof attributes === 'string') { attrs = attributes.split(',') }
 
-    if (Array.isArray(attributes)) { attrs = attributes }
+    if (Array.isArray(attributes)) {
+      if (attributes.length) attrs = attributes
+    }
 
     return attrs
   }
@@ -46,10 +48,7 @@ class Validator {
    * @param {Array,String} attributes 要验证的字段
    */
   async validateAttributes (model, attributes = null) {
-    let attrs = this.attributes
-
-    // 如果指定了要验证的属性，就只验证这些属性
-    if (attributes) { attrs = this.parseAttributes(attributes) }
+    const attrs = this.parseAttributes(attributes)
 
     const errors = []
 
