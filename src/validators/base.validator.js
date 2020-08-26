@@ -35,7 +35,8 @@ class Validator {
     if (typeof attributes === 'string') { attrs = attributes.split(',') }
 
     if (Array.isArray(attributes)) {
-      if (attributes.length) attrs = attributes
+      // 过滤到空白属性，为了支持动态规则
+      if (attributes.length) attrs = attributes.filter(a => a)
     }
 
     return attrs
