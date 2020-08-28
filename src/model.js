@@ -5,17 +5,15 @@ export default class Model {
     this._validators = null
     this.errors = {}
 
-    if (typeof attributes === typeof {}) {
-      this.attributes.forEach(key => {
-        if (Object.prototype.hasOwnProperty.call(this.attributes, key)) {
-          // 如果传了值过来就赋值
-          this[key] = attributes[key]
-        } else {
-          // 没传值就设为null
-          this[key] = null
-        }
-      })
-    }
+    this.attributes.forEach(key => {
+      if (Object.prototype.hasOwnProperty.call(attributes, key)) {
+        // 如果传了值过来就赋值
+        this[key] = attributes[key]
+      } else {
+        // 没传值就设为null
+        this[key] = null
+      }
+    })
   }
 
   get labels () {
