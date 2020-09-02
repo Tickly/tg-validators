@@ -4,7 +4,7 @@
   "description": "表单验证",
   "author": "taoguo <807081817@qq.com>",
   "scripts": {
-    "build": "vue-cli-service build --target lib --name index src/index.js",
+    "build": "vue-cli-service build --target lib --name index src/main.js",
     "lint": "vue-cli-service lint",
     "deploy": "bash deploy.sh",
     "docs:build": "vuepress build docs",
@@ -12,24 +12,24 @@
     "test": "./node_modules/karma/bin/karma start test/karma.conf.js"
   },
   "main": "dist/index.common.js",
-  "dependencies": {},
+  "dependencies": {
+    "core-js": "^3.6.5"
+  },
   "devDependencies": {
-    "@vue/cli-plugin-eslint": "^4.4.6",
-    "@vue/cli-service": "^4.4.6",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
     "@vue/eslint-config-standard": "^5.1.2",
-    "eslint": "^7.3.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
-    "vuepress": "^1.5.2"
+    "vue-template-compiler": "^2.6.11",
+    "vuepress": "^1.5.4"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ],
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
