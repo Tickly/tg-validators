@@ -9,17 +9,17 @@ export default class RequiredValidator extends Validator {
 
   validateValue (value, resolve) {
     do {
-      if (value === 0) {
-        break
-      }
-
-      // 如果是有元素的数组
+      // 数值类型通过验证
+      if (typeof value === typeof 0) break
+      // 布尔类型通过验证
+      if (typeof value === typeof true) break
+      // 数组，必须有元素
       if (Array.isArray(value) && value.length > 0) break
-      // 布尔型通过验证
-      if (typeof value === 'boolean') break
-      // 如果有值
-      if (value) break
-
+      // 字符串必须有值
+      if (typeof value === typeof '') {
+        if (value) break
+      }
+      // 对象暂时不作判断
       throw new Error(this.message)
     } while (false)
     // 只要break，就验证通过
