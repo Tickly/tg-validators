@@ -15,3 +15,6 @@
 
 <number-reference />
 <<< @/docs/.vuepress/components/number/reference.vue
+
+## 随意比较
+<number-diy />

@@ -11,7 +11,13 @@ export default class NumberValidator extends Validator {
       message_max: '{attribute}不能大于{maxText}',
       // 规则与max相同
       min: null,
-      message_min: '{attribute}不能小于{minText}'
+      message_min: '{attribute}不能小于{minText}',
+      // 小于某个数
+      lt: null,
+      message_lt: '{attribute}必须小于{lt}',
+      // 大于某个数
+      gt: null,
+      message_gt: '{attribute}必须大于{gt}',
     }
   }
 
@@ -38,6 +44,19 @@ export default class NumberValidator extends Validator {
     // 验证最大值与最小值
     this.validateMax(value)
     this.validateMin(value)
+
+    // 如果设置了 小于某个数
+    if (this.lt) {
+      if (!(value < this.lt)) {
+        throw new Error(this.message_lt)
+      }
+    }
+    // 如果设置了 大于某个数
+    if (this.gt) {
+      if (!(value > this.gt)) {
+        throw new Error(this.message_gt)
+      }
+    }
 
     resolve()
   }
