@@ -1,6 +1,6 @@
 {
   "name": "tg-validators",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "表单验证",
   "author": "taoguo <807081817@qq.com>",
   "scripts": {
