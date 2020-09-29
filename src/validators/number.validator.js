@@ -1,5 +1,9 @@
 import Validator from './base.validator'
 
+function isNumber (value) {
+  return typeof value === typeof 0
+}
+
 export default class NumberValidator extends Validator {
   get defaultOptions () {
     return {
@@ -39,20 +43,20 @@ export default class NumberValidator extends Validator {
 
   validateValue (value, resolve, reject) {
     // 类型验证，必须是数字类型
-    if (typeof value !== typeof 0) throw new Error(this.message)
+    if (!isNumber(value)) throw new Error(this.message)
 
     // 验证最大值与最小值
     this.validateMax(value)
     this.validateMin(value)
 
     // 如果设置了 小于某个数
-    if (this.lt !== null) {
+    if (isNumber(this.lt)) {
       if (!(value < this.lt)) {
         throw new Error(this.message_lt)
       }
     }
     // 如果设置了 大于某个数
-    if (this.gt !== null) {
+    if (isNumber(this.gt)) {
       if (!(value > this.gt)) {
         throw new Error(this.message_gt)
       }
@@ -69,7 +73,7 @@ export default class NumberValidator extends Validator {
     let max = this.max
 
     // 如果max是数字，直接比较大小
-    if (typeof max === typeof 0) { }
+    // if (isNumber(max)) { }
 
     // 如果max是字符串，则根据form中对应的属性判断
     if (typeof max === typeof '') {
@@ -89,7 +93,7 @@ export default class NumberValidator extends Validator {
     let min = this.min
 
     // 如果min是数字，直接比较大小
-    if (typeof min === typeof 0) { }
+    // if (typeof min === typeof 0) { }
 
     // 如果min是字符串，则根据form中对应的属性判断
     if (typeof min === typeof '') {
