@@ -46,13 +46,13 @@ export default class NumberValidator extends Validator {
     this.validateMin(value)
 
     // 如果设置了 小于某个数
-    if (this.lt) {
+    if (this.lt !== null) {
       if (!(value < this.lt)) {
         throw new Error(this.message_lt)
       }
     }
     // 如果设置了 大于某个数
-    if (this.gt) {
+    if (this.gt !== null) {
       if (!(value > this.gt)) {
         throw new Error(this.message_gt)
       }
