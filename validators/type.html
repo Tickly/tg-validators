@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数据类型验证 | tg-validators</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    
+    <meta name="description" content="nb">
+    <link rel="preload" href="/tg-validators/assets/css/0.styles.113d696d.css" as="style"><link rel="preload" href="/tg-validators/assets/js/app.98a8f5da.js" as="script"><link rel="preload" href="/tg-validators/assets/js/2.2449b939.js" as="script"><link rel="preload" href="/tg-validators/assets/js/28.653654d6.js" as="script"><link rel="preload" href="/tg-validators/assets/js/14.69a09ca5.js" as="script"><link rel="preload" href="/tg-validators/assets/js/16.8fe65ed7.js" as="script"><link rel="preload" href="/tg-validators/assets/js/17.152b4db8.js" as="script"><link rel="preload" href="/tg-validators/assets/js/13.965266a3.js" as="script"><link rel="preload" href="/tg-validators/assets/js/15.d203a941.js" as="script"><link rel="prefetch" href="/tg-validators/assets/js/10.79251f9e.js"><link rel="prefetch" href="/tg-validators/assets/js/11.1509fbd6.js"><link rel="prefetch" href="/tg-validators/assets/js/12.21ed9a12.js"><link rel="prefetch" href="/tg-validators/assets/js/18.6dc5f8f5.js"><link rel="prefetch" href="/tg-validators/assets/js/19.82d39ade.js"><link rel="prefetch" href="/tg-validators/assets/js/20.e7f7daf9.js"><link rel="prefetch" href="/tg-validators/assets/js/21.2e7ed575.js"><link rel="prefetch" href="/tg-validators/assets/js/22.cfd3effe.js"><link rel="prefetch" href="/tg-validators/assets/js/23.45a120da.js"><link rel="prefetch" href="/tg-validators/assets/js/24.c4e9962f.js"><link rel="prefetch" href="/tg-validators/assets/js/25.697b3e7b.js"><link rel="prefetch" href="/tg-validators/assets/js/26.85f4ef8d.js"><link rel="prefetch" href="/tg-validators/assets/js/27.bc4eec1c.js"><link rel="prefetch" href="/tg-validators/assets/js/3.3fb43233.js"><link rel="prefetch" href="/tg-validators/assets/js/4.8b333e26.js"><link rel="prefetch" href="/tg-validators/assets/js/5.4d97e421.js"><link rel="prefetch" href="/tg-validators/assets/js/6.7748b516.js"><link rel="prefetch" href="/tg-validators/assets/js/7.9418e95c.js"><link rel="prefetch" href="/tg-validators/assets/js/8.01448e9c.js"><link rel="prefetch" href="/tg-validators/assets/js/9.8de8b72a.js">
+    <link rel="stylesheet" href="/tg-validators/assets/css/0.styles.113d696d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/tg-validators/" class="home-link router-link-active"><!----> <span class="site-name">tg-validators</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/tg-validators/" class="nav-link">
+  Home
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/tg-validators/" class="nav-link">
+  Home
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/tg-validators/" aria-current="page" class="sidebar-link">tg-validators</a></li><li><a href="/tg-validators/installation.html" class="sidebar-link">安装</a></li><li><a href="/tg-validators/basic-usage.html" class="sidebar-link">基本用法</a></li><li><a href="/tg-validators/validators/" aria-current="page" class="sidebar-link">编写验证规则</a></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>全部验证器</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/tg-validators/validators/required.html" class="sidebar-link">Required</a></li><li><a href="/tg-validators/validators/number.html" class="sidebar-link">数字验证</a></li><li><a href="/tg-validators/validators/type.html" aria-current="page" class="active sidebar-link">数据类型验证</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/tg-validators/validators/type.html#boolean" class="sidebar-link">Boolean</a></li><li class="sidebar-sub-header"><a href="/tg-validators/validators/type.html#number" class="sidebar-link">Number</a></li><li class="sidebar-sub-header"><a href="/tg-validators/validators/type.html#string" class="sidebar-link">String</a></li><li class="sidebar-sub-header"><a href="/tg-validators/validators/type.html#array" class="sidebar-link">Array</a></li><li class="sidebar-sub-header"><a href="/tg-validators/validators/type.html#date" class="sidebar-link">Date</a></li></ul></li><li><a href="/tg-validators/validators/regexp.html" class="sidebar-link">正则表达式</a></li><li><a href="/tg-validators/validators/custom.html" class="sidebar-link">自定义验证</a></li><li><a href="/tg-validators/validators/async.html" class="sidebar-link">异步验证</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="数据类型验证"><a href="#数据类型验证" class="header-anchor">#</a> 数据类型验证</h1> <h2 id="boolean"><a href="#boolean" class="header-anchor">#</a> Boolean</h2> <form><button type="button">Toggle input type</button> <label>
+    绑定值
+    <input type="input" value=""></label> <button>Submit</button></form> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">@submit.prevent</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>handleSubmit<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>button<span class="token punctuation">&quot;</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>toggle<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Toggle input type<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">&gt;</span></span>
+      绑定值
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>form.bind<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>type<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>Submit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      type<span class="token operator">:</span> <span class="token string">'input'</span><span class="token punctuation">,</span>
+      form<span class="token operator">:</span> <span class="token punctuation">{</span>
+        bind<span class="token operator">:</span> <span class="token string">''</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">[</span><span class="token string">'boolean'</span><span class="token punctuation">,</span> <span class="token string">'bind'</span><span class="token punctuation">]</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      labels<span class="token operator">:</span> <span class="token punctuation">{</span>
+        bind<span class="token operator">:</span> <span class="token string">'绑定值'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">toggle</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'input'</span> <span class="token operator">?</span> <span class="token string">'checkbox'</span> <span class="token operator">:</span> <span class="token string">'input'</span>
+      <span class="token comment">// 单纯的切换type还不行，得手动重新赋值一下对应的类型</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">.</span>bind <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'input'</span> <span class="token operator">?</span> <span class="token string">''</span> <span class="token operator">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">handleSubmit</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rules<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>labels<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="参数"><a href="#参数" class="header-anchor">#</a> 参数</h3> <table><thead><tr><th>参数</th> <th>类型</th> <th>描述</th> <th>默认值</th></tr></thead> <tbody><tr><td>message</td> <td>String</td> <td>当类型不是 Boolean 时候的错误提示</td> <td>'{attribute}必须是布尔型'</td></tr></tbody></table> <h2 id="number"><a href="#number" class="header-anchor">#</a> Number</h2> <form><button type="button">Toggle input type</button> <label>
+    绑定值
+    <input value=""></label> <button>Submit</button></form> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">@submit.prevent</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>handleSubmit<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>button<span class="token punctuation">&quot;</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>toggle<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Toggle input type<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">&gt;</span></span>
+      绑定值
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>type === <span class="token punctuation">'</span>input<span class="token punctuation">'</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>form.bind<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">v-else</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>number<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-model.number</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>form.bind<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>Submit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      type<span class="token operator">:</span> <span class="token string">'input'</span><span class="token punctuation">,</span>
+      form<span class="token operator">:</span> <span class="token punctuation">{</span>
+        bind<span class="token operator">:</span> <span class="token string">''</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">[</span><span class="token string">'number'</span><span class="token punctuation">,</span> <span class="token string">'bind'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          min<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+          max<span class="token operator">:</span> <span class="token number">10</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      labels<span class="token operator">:</span> <span class="token punctuation">{</span>
+        bind<span class="token operator">:</span> <span class="token string">'绑定值'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">toggle</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'input'</span> <span class="token operator">?</span> <span class="token string">'number'</span> <span class="token operator">:</span> <span class="token string">'input'</span>
+      <span class="token comment">// 单纯的切换type还不行，得手动重新赋值一下对应的类型</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">.</span>bind <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'input'</span> <span class="token operator">?</span> <span class="token string">''</span> <span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">handleSubmit</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rules<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>labels<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="参数-2"><a href="#参数-2" class="header-anchor">#</a> 参数</h3> <table><thead><tr><th>参数</th> <th>类型</th> <th>描述</th> <th>默认值</th></tr></thead> <tbody><tr><td>message</td> <td>String</td> <td>当类型不是 Number 时候的错误提示</td> <td>'{attribute}必须是数字'</td></tr> <tr><td>min</td> <td>Number</td> <td>允许的数字最小值</td> <td>-Infinity</td></tr> <tr><td>message_min</td> <td>String</td> <td>长度小于 min 时的错误提示</td> <td>'{attribute}不能小于{min}'</td></tr> <tr><td>max</td> <td>Number</td> <td>允许的数字最大值</td> <td>Infinity</td></tr> <tr><td>message_max</td> <td>String</td> <td>长度大于 max 时的错误提示</td> <td>'{attribute}不能大于{max}'</td></tr></tbody></table> <h2 id="string"><a href="#string" class="header-anchor">#</a> String</h2> <form><button type="button">Toggle input type</button> <label>
+    绑定值
+    <input type="number" value="0"></label> <button>Submit</button></form> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">@submit.prevent</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>handleSubmit<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>button<span class="token punctuation">&quot;</span></span> <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>toggle<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Toggle input type<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">&gt;</span></span>
+      绑定值
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>type === <span class="token punctuation">'</span>input<span class="token punctuation">'</span><span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>form.bind<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">v-else</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>number<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-model.number</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>form.bind<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>Submit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      type<span class="token operator">:</span> <span class="token string">'number'</span><span class="token punctuation">,</span>
+      form<span class="token operator">:</span> <span class="token punctuation">{</span>
+        bind<span class="token operator">:</span> <span class="token number">0</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">[</span><span class="token string">'string'</span><span class="token punctuation">,</span> <span class="token string">'bind'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          min<span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+          max<span class="token operator">:</span> <span class="token number">10</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      labels<span class="token operator">:</span> <span class="token punctuation">{</span>
+        bind<span class="token operator">:</span> <span class="token string">'绑定值'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">toggle</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'input'</span> <span class="token operator">?</span> <span class="token string">'number'</span> <span class="token operator">:</span> <span class="token string">'input'</span>
+      <span class="token comment">// 单纯的切换type还不行，得手动重新赋值一下对应的类型</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">.</span>bind <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'input'</span> <span class="token operator">?</span> <span class="token string">''</span> <span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">handleSubmit</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rules<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>labels<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="参数-3"><a href="#参数-3" class="header-anchor">#</a> 参数</h3> <table><thead><tr><th>参数</th> <th>类型</th> <th>描述</th> <th>默认值</th></tr></thead> <tbody><tr><td>message</td> <td>String</td> <td>当类型不是 String 时候的错误提示</td> <td>'{attribute}必须是字符串'</td></tr> <tr><td>min</td> <td>Number</td> <td>允许的字符串最小长度</td> <td>0</td></tr> <tr><td>message_min</td> <td>String</td> <td>长度小于 min 时的错误提示</td> <td>'{attribute}长度至少为{min}'</td></tr> <tr><td>max</td> <td>Number</td> <td>允许的字符串最大长度</td> <td>Infinity</td></tr> <tr><td>message_max</td> <td>String</td> <td>长度大于 max 时的错误提示</td> <td>'{attribute}长度不能超过{max}'</td></tr></tbody></table> <h2 id="array"><a href="#array" class="header-anchor">#</a> Array</h2> <form><label>
+    选择要验证的值：
+    <select><option>'abc'</option> <option>[]</option> <option>[1]</option> <option>[1,2,3]</option></select></label> <button>Submit</button></form> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">@submit.prevent</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>handleSubmit<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">&gt;</span></span>
+      选择要验证的值：
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>select</span> <span class="token attr-name">@change</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>handleChange<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span><span class="token punctuation">&gt;</span></span>'abc'<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span><span class="token punctuation">&gt;</span></span>[]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span><span class="token punctuation">&gt;</span></span>[1]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>option</span><span class="token punctuation">&gt;</span></span>[1,2,3]<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>option</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>select</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>Submit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      form<span class="token operator">:</span> <span class="token punctuation">{</span>
+        bind<span class="token operator">:</span> <span class="token number">0</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">[</span><span class="token string">'array'</span><span class="token punctuation">,</span> <span class="token string">'bind'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+          min<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+          max<span class="token operator">:</span> <span class="token number">2</span>
+        <span class="token punctuation">}</span><span class="token punctuation">]</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      labels<span class="token operator">:</span> <span class="token punctuation">{</span>
+        bind<span class="token operator">:</span> <span class="token string">'绑定值'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">handleChange</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">.</span>bind <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">handleSubmit</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rules<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>labels<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="参数-4"><a href="#参数-4" class="header-anchor">#</a> 参数</h3> <table><thead><tr><th>参数</th> <th>类型</th> <th>描述</th> <th>默认值</th></tr></thead> <tbody><tr><td>message</td> <td>String</td> <td>当类型不是 Array 时候的错误提示</td> <td>'{attribute}必须是数组'</td></tr> <tr><td>min</td> <td>Number</td> <td>允许的数组最小个数</td> <td>0</td></tr> <tr><td>message_min</td> <td>String</td> <td>个数小于 min 时的错误提示</td> <td>'{attribute}长度至少为{min}'</td></tr> <tr><td>max</td> <td>Number</td> <td>允许的数组最大个数</td> <td>Infinity</td></tr> <tr><td>message_max</td> <td>String</td> <td>个数大于 max 时的错误提示</td> <td>'{attribute}长度不能超过{max}'</td></tr></tbody></table> <h2 id="date"><a href="#date" class="header-anchor">#</a> Date</h2> <form><label>
+    绑定值：
+    <input type="date" value=""></label> <button>Submit</button></form> <div class="language-vue extra-class"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">@submit.prevent</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>handleSubmit<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span><span class="token punctuation">&gt;</span></span>
+      绑定值：
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>date<span class="token punctuation">&quot;</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>form.bind<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token punctuation">&gt;</span></span>Submit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      form<span class="token operator">:</span> <span class="token punctuation">{</span>
+        bind<span class="token operator">:</span> <span class="token string">''</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      rules<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">[</span><span class="token string">'date'</span><span class="token punctuation">,</span> <span class="token string">'bind'</span><span class="token punctuation">]</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      labels<span class="token operator">:</span> <span class="token punctuation">{</span>
+        bind<span class="token operator">:</span> <span class="token string">'绑定值'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token function">handleChange</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">.</span>bind <span class="token operator">=</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">handleSubmit</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>form<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>rules<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>labels<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><h3 id="参数-5"><a href="#参数-5" class="header-anchor">#</a> 参数</h3> <table><thead><tr><th>参数</th> <th>类型</th> <th>描述</th> <th>默认值</th></tr></thead> <tbody><tr><td>message</td> <td>String</td> <td>当类型不是 Date 时候的错误提示</td> <td>'{attribute} 必须是时间类型'</td></tr></tbody></table></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/tg-validators/validators/number.html" class="prev">
+        数字验证
+      </a></span> <span class="next"><a href="/tg-validators/validators/regexp.html">
+        正则表达式
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/tg-validators/assets/js/app.98a8f5da.js" defer></script><script src="/tg-validators/assets/js/2.2449b939.js" defer></script><script src="/tg-validators/assets/js/28.653654d6.js" defer></script><script src="/tg-validators/assets/js/14.69a09ca5.js" defer></script><script src="/tg-validators/assets/js/16.8fe65ed7.js" defer></script><script src="/tg-validators/assets/js/17.152b4db8.js" defer></script><script src="/tg-validators/assets/js/13.965266a3.js" defer></script><script src="/tg-validators/assets/js/15.d203a941.js" defer></script>
+  </body>
+</html>
