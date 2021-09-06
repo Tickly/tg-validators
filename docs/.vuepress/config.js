@@ -26,7 +26,8 @@ module.exports = {
           '/validators/custom',
           '/validators/async',
         ]
-      }
+      },
+      '/register'
     ],
     nav: [
       { text: 'Home', link: '/' }

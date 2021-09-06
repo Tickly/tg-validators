@@ -1,7 +1,7 @@
 {
   "name": "tg-validators",
   "version": "1.4.2",
-  "description": "表单验证",
+  "description": "通用前端表单验证，支持基本类型、正则、异步、自定义验证。",
   "author": "taoguo <807081817@qq.com>",
   "scripts": {
     "build": "vue-cli-service build --target lib --name index src/main.js",
@@ -13,22 +13,17 @@
   },
   "main": "dist/index.common.js",
   "dependencies": {
-    "core-js": "^3.6.5"
+    "core-js": "^3.17.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/eslint-config-standard": "^5.1.2",
+    "@vue/cli-plugin-babel": "^4.5.13",
+    "@vue/cli-service": "^4.5.13",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^6.2.2",
+    "eslint": "^7.32.0",
+    "eslint-config-tg-config": "^1.0.5",
+    "eslint-plugin-vue": "^7.17.0",
     "vue-template-compiler": "^2.6.11",
-    "vuepress": "^1.5.4"
+    "vuepress": "^1.8.2"
   },
   "engines": {
     "node": ">= 4.0.0",
