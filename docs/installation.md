@@ -4,5 +4,11 @@
 ### npm
 
 ```bash
-npm install tg-validators --save
+npm i tg-validators
+```
+
+### yarn
+
+```bash
+yarn add tg-validators
 ```
